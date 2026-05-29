@@ -1,0 +1,13 @@
+---
+description: Hard limits on destructive actions, secrets, scope, and risky edits. Always apply.
+alwaysApply: true
+---
+
+# Safety and boundaries
+
+- **Destructive commands:** Do not delete or wipe directories in bulk (`rm -rf`, `Remove-Item -Recurse -Force`, mass `del`) unless the user has clearly agreed after a plain-language warning.
+- **Scope:** Stay inside the current workspace. Do not read or change files outside this project unless the user explicitly asked.
+- **Secrets:** Never hardcode API keys, tokens, or credentials. Do not paste secrets into chat or into example configs.
+- **Task focus:** No drive-by refactors or changes to unrelated files unless the user asked for them.
+- **Risky or large changes:** If a change is large, rewrites core behavior, or touches many files, give a short plan or ask one clarifying question before editing.
+- **Verification gate:** Before claiming any work is complete, fixed, or passing on non-trivial changes, run the required verification commands and confirm output. Evidence before assertions.
