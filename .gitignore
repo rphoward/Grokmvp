@@ -1,0 +1,25 @@
+# OS
+Thumbs.db
+.DS_Store
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Cursor
+.cursor/cache/
+.cursor/logs/
+
+# Language / Build artifacts (common across projects)
+__pycache__/
+*.pyc
+*.pyo
+node_modules/
+.env
+.env.local
+dist/
+build/
+*.log
+*.tmp
