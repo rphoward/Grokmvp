@@ -23,3 +23,10 @@ dist/
 build/
 *.log
 *.tmp
+
+# Root assets/ — deliberate home (user-directed) for machine-only Lisp records, schemas,
+# decision artifacts, generated flat files, and internal material.
+# The directory is tracked for structure; committed source-of-truth files are whitelisted.
+# Transient/generated content is ignored.
+assets/
+!assets/rule-glob-hierarchies-and-activation-best-practices.md
