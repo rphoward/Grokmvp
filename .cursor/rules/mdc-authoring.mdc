@@ -1,0 +1,41 @@
+---
+description: Guidance for writing Cursor .mdc rule files — frontmatter, globs, and when to split.
+alwaysApply: false
+---
+
+# MDC authoring
+
+## Frontmatter
+
+Every .mdc file starts with this block:
+
+```yaml
+---
+description: One line that appears in the rule picker
+alwaysApply: true          # use for broad rules that must always load
+# or
+globs: src/**/*.ts, docs/**
+---
+```
+
+- `alwaysApply: true` suits short, always-needed rules such as conduct or safety.
+- `globs` limits the rule to matching paths or folders. Use this for stack-specific or folder-specific detail.
+- Supported keys are `description`, `alwaysApply`, and `globs`. Do not add other keys.
+
+## Prefer focused rules over giant ones
+
+Split guidance across several small .mdc files instead of one large always-on file.
+
+A practical layout in most projects:
+
+- Always-on minimum: one file for response style and habits, one for hard safety limits.
+- Broad but not universal: repo layout, build workflow, or coding standards.
+- Narrow detail: rules that apply only to certain directories or file types (for example, a Python-specific rule under `globs: **/*.py`).
+
+This keeps each rule short, easy to reason about, and fast for the editor to apply.
+
+## Legacy single-file formats
+
+Old `.cursorrules` files (or similar) held everything in one blob. Move their content into one or more `.cursor/rules/*.mdc` files during migration. The same applies to other legacy rule files from other tools: inventory what they contain and port the useful parts to scoped .mdc files.
+
+Keep the new rules small and targeted.
