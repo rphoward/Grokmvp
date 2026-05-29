@@ -1,61 +1,63 @@
 ---
-description: Pseudo-Lisp SOP for writing composable Cursor .mdc rules — frontmatter schemas, structural subtraction, legacy ports, and cross-rule composability with thermonuclear invariants.
+description: Pseudo-Lisp SOP for authoring Cursor-compatible .mdc rule files in this workspace — frontmatter contracts, focused splitting, legacy ports, and enforcement of consistent rule form across the set.
 globs: .cursor/rules/**
 ---
 
 (def-sop mdc-authoring
   (context
     (target "cursor-rule-authoring-agent")
-    (optimization "maximum-determinism-minimum-slop-composable-rules"))
+    (optimization "maximum-determinism-minimum-slop-consistent-rule-set"))
 
   <central_idea>
   (center-of-gravity
-    (invariant "Every .mdc rule file is a data structure that drives agent behavior strictly downstream of its form; authoring must perform structural subtraction to the smallest explicit composable unit, declare strict applicability contracts at the boundary via frontmatter, and halt/escalate immediately on any ambiguity of purpose, data shape, or scope."))
+    (invariant "Every .mdc rule file in this workspace must be a valid Cursor data structure with strict frontmatter contracts and minimal focused scope; authoring must perform structural subtraction to the smallest explicit unit, enforce a single consistent form across the entire rule set, and halt immediately on any ambiguity of rule purpose, applicability, or boundary."))
   </central_idea>
 
-  (protocol-1-discovery-and-requirement-grilling
+  (protocol-1-purpose-and-scope-grilling
     (pre-flight-inventory
-      (execute-ide-search :targets '(".cursor/rules/*.mdc" "current rules set" "legacy .cursorrules or equivalent if present")))
+      (execute-ide-search :targets '(".cursor/rules/*.mdc" "current rule set" "any legacy single-file rule formats present")))
     (grill-interrogation
-      (if (or (ambiguous? rule-purpose) (ambiguous? target-scope) (ambiguous? data-shape-driven-by-rule))
+      (if (or (ambiguous? purpose-of-rule-being-written)
+              (ambiguous? when-it-should-activate)
+              (ambiguous? boundary-of-its-responsibility))
           (progn
             (halt-generation)
             (query-human :count 1 :propose-recommendation t)
             (wait-for-resolution)))))
 
-  (protocol-2-frontmatter-as-strict-boundary-schema
-    (frontmatter-contract
-      (enforce (progn
-        (description :one-line-picker-text)
-        (match applicability-contract
-          (:universal-short-habit (alwaysApply :true))
-          (:path-folder-or-type-specific (globs "exact/**/pattern"))
-          (otherwise (forbidden 'omitting-or-mixing-contracts)))))
-      (valid-keys-only
-        (assert (set-equals? (keys frontmatter) '(description alwaysApply globs)))
-        (enforce (no-undocumented-keys :in-any-rule))))
-    (application-guidance
-      (always-apply-for (or 'conduct 'safety 'core-habits 'universal-invariants))
-      (globs-for (or 'language-specific 'directory-specific 'workflow-specific))))
+  (protocol-2-frontmatter-as-strict-applicability-contract
+    (enforce (valid-cursor-frontmatter-only))
+    (match activation-mode
+      (:always-loaded (alwaysApply :true))
+      (:auto-attach-on-files (globs "exact/**/pattern"))
+      (:agent-decides-relevance (description "one-line purpose for the model to evaluate"))
+      (otherwise (forbidden 'mixing-modes 'omitting-required-fields)))
+    (valid-keys-only
+      (assert (set-equals? (keys frontmatter) '(description alwaysApply globs)))
+      (enforce (no-undocumented-keys))))
 
-  (protocol-3-structural-subtraction-and-guaranteed-composability
-    (bounded-focus
-      (if (rule-surface-exceeds-minimal-focused-unit)
-          (progn
-            (execute-single-surgical-extraction :to-new-mdc)
-            (reduce-surface-area))))
+  (protocol-3-focused-rules-and-structural-subtraction
+    (prefer (multiple-small-focused-rules over 'one-giant-always-on-blob))
+    (if (rule-surface-exceeds-minimal-unit-for-its-purpose)
+        (progn
+          (execute-single-surgical-extraction :into-new-mdc-file)
+          (reduce-surface-area)))
     (anti-ad-hoc-blob
-      (assert (not (or (has-ad-hoc-sections? diff) (has-unstructured-prose-blob? diff))))
-      (remedy (extract-to (or 'dedicated-focused-mdc 'policy-rule))))
-    (legacy-port-as-typed-extraction
-      (enforce (progn
-        (inventory-legacy-blob)
-        (port-only-useful-parts-to-scoped-mdc)
-        (delete-legacy-blob-form))))
-    (composability-with-existing-invariants
-      (enforce (new-rule-satisfies-thermonuclear-principles
-                 :data-structures-drive-behavior
-                 :structural-subtraction
-                 :explicit-boundaries
-                 :halt-on-ambiguity))
-      (assert (no-conflict-with 'thermonuclear 'conduct 'safety 'any-prior-focused-rule)))))
+      (assert (not (or (has-unstructured-prose-blob? diff)
+                       (has-ad-hoc-sections? diff))))
+      (remedy (extract-to 'dedicated-focused-mdc))))
+
+  (protocol-4-legacy-porting
+    (enforce (when-porting-from-single-file-formats
+               (inventory-content)
+               (port-only-useful-parts-to-scoped-mdc-files)
+               (delete-legacy-form))))
+
+  (protocol-5-set-wide-form-consistency
+    (enforce (all-rules-in-this-workspace-must-use
+               :valid-cursor-frontmatter
+               :established-pseudo-lisp-def-sop-form
+               :narrow-scope
+               :no-bleed-between-rules))
+    (assert (no-duplication-of-responsibility-with 'conduct 'safety 'thermonuclear 'any-other-rule))
+    (forbidden 'embedding-coding-discipline 'embedding-safety-logic 'embedding-response-habits-into-authoring-rule)))
