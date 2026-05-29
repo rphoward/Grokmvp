@@ -1,0 +1,37 @@
+---
+description: Preferred repository shape — development in dedicated folders, root tolerance for manual junk, supporting material in subfolders. Always loaded.
+alwaysApply: true
+---
+
+(def-sop repo-layout
+  (context
+    (target "any-agent-working-in-this-workspace")
+    (optimization "clear-development-boundaries-root-tolerance-for-manual-junk"))
+
+  <central_idea>
+  (center-of-gravity
+    (invariant "The main deliverable develops inside its own dedicated folder. The root is intentionally allowed to collect manual docs, experiments, and temporary junk that the user drops by hand. All supporting, reusable, or generated material belongs in subfolders. Development artifacts and ship output must not pollute the root unless the user explicitly directs it."))
+  </central_idea>
+
+  (protocol-1-development-location
+    (enforce (main-deliverable-lives-in-dedicated-folder))
+    (forbidden (spreading-final-product-across-root)))
+
+  (protocol-2-root-tolerance
+    (allow (user-drops-docs 'experiments 'temporary-junk-manually-into-root))
+    (forbidden (agent-creating-junk 'build-artifacts 'ship-output 'generated-files-in-root-without-explicit-permission)))
+
+  (protocol-3-supporting-material
+    (enforce (supporting-reusable-generated-material-goes-into-subfolders))
+    (examples 'assets/ 'references/ 'docs/ 'scripts/ 'tests/ 'examples/))
+
+  (protocol-4-assets-pattern
+    (recognize (assets/ 'as-preferred-location-for-templates 'reusable-bits 'supporting-artifacts))
+    (when-creating-supporting-material (prefer-assets-or-similar-subfolder-over-root)))
+
+  (protocol-5-explicit-permission-gate
+    (if (would-create-or-move-generated-or-ship-material-into-root)
+        (progn
+          (halt)
+          (ask-user-explicit-permission)
+          (wait-for-resolution)))))
