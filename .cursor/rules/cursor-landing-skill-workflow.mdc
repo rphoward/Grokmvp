@@ -1,0 +1,50 @@
+---
+description: Phase 0–3 behavior, MCP policy, multi-host forensics — authority for skill edits.
+alwaysApply: true
+---
+
+# Skill workflow (maintainers)
+
+When changing scan, grill, or write behavior, keep [SKILL.md](../../SKILL.md) and references aligned.
+
+## Phase 0 — Read-only scan
+
+- Emit Scan Report per [references/SCAN-REPORT-SCHEMA.md](../../references/SCAN-REPORT-SCHEMA.md); optional **`proposed_glossary`** (schema v2.1) from glossary-classified sources only.
+- Use [references/scan-checklist.md](../../references/scan-checklist.md) + host [references/annexes/INDEX.md](../../references/annexes/INDEX.md).
+- **Do not** promote run-state to CONTEXT or always-on rules (`memory-bank/activeContext.md`, Codex `PLANS.md`, sprint logs in AGENTS).
+- MCP: **inventory + flag duplicates/secrets** — no merge into `.cursor/mcp.json` unless user asks (grill Q12).
+
+## Phase 1 — Mini grill
+
+- ≤5 questions default; Q6 **per artifact** when existing agent files found (replace / merge / leave); Q14 dual-host when GEMINI/`.agent/` + AGENTS; extraction table before merge writes — [references/MERGE-TO-RULES.md](../../references/MERGE-TO-RULES.md).
+- Q11 when Cline `memory-bank/` detected; Q12 when duplicate MCP configs detected.
+
+## Phase 2 — Write (target repos)
+
+Authoritative order: [SKILL.md](../../SKILL.md) § Phase 2; rule shapes in [references/MDC-RULES-FORMAT.md](../../references/MDC-RULES-FORMAT.md).
+
+1. `CONTEXT.md` (glossary only)
+2. `AGENTS.md` (slim guardrails + proof; trim run-state)
+3. `.cursor/rules/` — **conduct + safety** always-on from [assets/conduct.template.mdc](../../assets/conduct.template.mdc) + [assets/safety.template.mdc](../../assets/safety.template.mdc) unless grill **Q13** chose one combined conduct
+4. Optional `CLAUDE.md` bridge: `@AGENTS.md` and `@CONTEXT.md` at top — Windows-safe `@` imports, not symlinks
+
+- **Additional rules:** `glob` or `agent_request` **only** from Scan Report `proposed_mdc_rules` with scan evidence — do not invent paths or globs.
+- **No mega always-on** duplicating stack, ADRs, or architecture unless Q13 explicitly chose one combined rule.
+- **Q6** before overwriting existing agent files; **Q13** when Phase 2 creates or reshapes `.cursor/rules/`.
+- **CONTEXT.md** = glossary only (four-column table, 12–20 term cap). Architecture and conduct go to AGENTS or scoped `.mdc`, not CONTEXT.
+
+## Phase 3 — CONTEXT gates (initializer)
+
+- Blocking before init "done": CONTEXT exists; glossary table ≥1 row with Meaning; no proof commands or path trees in CONTEXT; ≤ ~60 lines unless user OK — per [SKILL.md](../../SKILL.md) Phase 3.
+
+## Phase 0e — Emergency
+
+- `docs/EMERGENCY-HANDOFF.md` only; git best-effort; do not rewrite full AGENTS for handoff.
+
+## Forensics reference
+
+Sanitized research: [references/research/AGENT-FORENSICS-RESEARCH-RESULTS.md](../../references/research/AGENT-FORENSICS-RESEARCH-RESULTS.md). Prefer official vendor docs over blogs when updating annexes.
+
+## Host coverage (scan annexes)
+
+Cursor, Codex, Claude, Gemini/Antigravity, MCP, Copilot, Cline, Windsurf — see INDEX. Add signals to checklist when adding hosts; keep annexes scan-only (not skill runtime).

@@ -1,0 +1,52 @@
+---
+description: How to write .mdc rules — frontmatter, globs, linking CONTEXT in target repos.
+globs: .cursor/rules/**,assets/*.mdc
+---
+
+# MDC authoring (this repo and targets)
+
+## Frontmatter
+
+```yaml
+---
+description: One line for the rule picker
+alwaysApply: true   # OR omit and use globs:
+globs: path/to/**,other/**
+---
+```
+
+- **alwaysApply:** short conduct, safety, repo layout, skill workflow — keep lean.
+- **globs:** host- or folder-specific detail (layer rules in app repos; `references/` here).
+
+Valid fields per [Cursor Rules](https://cursor.com/docs/context/rules): `alwaysApply`, `description`, `globs` (and `paths` where supported). Do not rely on undocumented keys.
+
+## Linking
+
+| Repo | Glossary link in rule body |
+|------|----------------------------|
+| Target app (rules in `.cursor/rules/`) | [`CONTEXT.md`](../../CONTEXT.md) |
+| This skill repo | [`CONTEXT.md`](../../CONTEXT.md), [`AGENTS.md`](../../AGENTS.md), [SKILL.md](../../SKILL.md), [OVERVIEW.md](../../OVERVIEW.md) |
+
+## Target-repo conduct template
+
+[assets/conduct.template.mdc](../../assets/conduct.template.mdc) is the default for brownfield init: always-on, links CONTEXT, proof from AGENTS.
+
+## Factory vs target (Phase 2 pattern)
+
+| Layer | Target brownfield repo | This skill repo (maintainers) |
+|-------|------------------------|-------------------------------|
+| Always-on minimum | conduct + safety (or Q13 combined conduct) | safety, conduct, repo-layout, skill-workflow |
+| Glob-scoped | From `proposed_mdc_rules` only (stack, docs, …) | references, doc-style, mdc-authoring, **dual-publish** (`github-publish-lisp/**`) |
+| Glossary link in rules | [`CONTEXT.md`](../../CONTEXT.md) | [`CONTEXT.md`](../../CONTEXT.md), [`AGENTS.md`](../../AGENTS.md), [SKILL.md](../../SKILL.md) |
+
+**Dual publish:** [.cursor/plans/dual-publish-architecture.md](../plans/dual-publish-architecture.md) — never blind-copy factory markdown `SKILL.md` into the Lisp ship tree.
+| Phase 2 authority | [SKILL.md](../../SKILL.md) + [MDC-RULES-FORMAT.md](../../references/MDC-RULES-FORMAT.md) | Same — do not drift factory rules from SKILL without editing SKILL in a later slice |
+
+## Legacy paths (scan, do not champion in new rules)
+
+- `.cursorrules` — migrate content to `.cursor/rules/*.mdc` on merge
+- `.windsurfrules`, `.clinerules` — inventory per annexes; port to scoped `.mdc` when converting
+
+## Split rules (multi-mdc pattern)
+
+Prefer several focused `.mdc` files over one giant always-on rule: conduct + safety (always-on minimum) + layout + workflow + glob-scoped detail (e.g. `references/**`, doc-style paths).

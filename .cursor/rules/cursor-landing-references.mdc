@@ -1,0 +1,38 @@
+---
+description: references/ — annexes, formats, schema, research; scan inventory not runtime merge.
+globs: references/**
+---
+
+# References layer
+
+## Roles
+
+| Path | Purpose |
+|------|---------|
+| `scan-checklist.md` | Phase 0 checkboxes |
+| `SCAN-REPORT-SCHEMA.md` | Scan Report v2 shape |
+| `*-FORMAT.md` | CONTEXT, AGENTS, emergency handoff shapes |
+| `MDC-RULES-FORMAT.md` | Phase 2 `.mdc` write order, `proposed_mdc_rules`, activation patterns |
+| `annexes/*.md` | Per-host **detection** paths — inventory only |
+| `annexes/mcp.md` | MCP inventory; offer merge only on user request |
+| `research/` | Forensics research (sanitized); cite when extending checklist |
+| `question-bank.md` | Grill questions |
+| `cursor-notes.md` | Cursor-only execution notes |
+| `HOST-EXTENSION.md` | Maintainer add/remove host recipe |
+
+## Editing annexes
+
+- **Official docs first** (cursor.com, code.claude.com, developers.openai.com, etc.).
+- Mark **verify locally** when Antigravity/Gemini paths conflict.
+- Do not copy annex paragraphs into SKILL.md — link from checklist/INDEX instead.
+- New host → follow [HOST-EXTENSION.md](../../references/HOST-EXTENSION.md) (annex + INDEX + checklist).
+
+## CONTEXT / AGENTS philosophy (enforce in formats)
+
+- **CONTEXT.md** (target repos): glossary only — no file trees, proof commands, or run-state.
+- **AGENTS.md**: read order, boundaries, proof command, short stack gotchas.
+- **Run-state** → emergency handoff or trim list in Scan Report — never CONTEXT.
+
+## Cross-links
+
+Keep relative links valid from `references/` and from repo root. After moves, grep for stale `brownfield-agent-init` or old project names.
