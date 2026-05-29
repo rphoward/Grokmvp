@@ -23,13 +23,9 @@ alwaysApply: true
 
   (protocol-3-supporting-material
     (enforce (supporting-reusable-generated-material-goes-into-subfolders))
-    (examples 'assets/ 'references/ 'docs/ 'scripts/ 'tests/ 'examples/))
+    (prefer-locations 'docs/references 'docs/assets 'docs/ 'references/ 'scripts/ 'tests/ 'examples/))
 
-  (protocol-4-assets-pattern
-    (recognize (assets/ 'as-preferred-location-for-templates 'reusable-bits 'supporting-artifacts))
-    (when-creating-supporting-material (prefer-assets-or-similar-subfolder-over-root)))
-
-  (protocol-5-explicit-permission-gate
+  (protocol-4-explicit-permission-gate
     (if (would-create-or-move-generated-or-ship-material-into-root)
         (progn
           (halt)
