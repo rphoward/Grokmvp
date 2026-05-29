@@ -1,0 +1,51 @@
+---
+description: Structure, tone, and determinism rules for internal-only Lisp-shaped documentation, schemas, prompts, and decision artifacts. Never human-facing.
+globs: docs/references/**, docs/assets/**, docs/internal/**, internal/**, schemas/**
+---
+
+(def-sop internal-doc-style
+  (context
+    (target "agent-writing-internal-schemas-prompts-decision-structures")
+    (optimization "determinism-clarity-low-nesting-agent-reusability"))
+
+  <central_idea>
+  (center-of-gravity
+    (invariant "Internal documentation is written as Lisp-shaped prompts, schemas, and templates. The shape prioritizes agent determinism while staying lightweight and practical. These are strictly for machine consumption and never appear in human-facing documents."))
+  </central_idea>
+
+  (protocol-1-overall-character
+    (this-is (lisp-shaped-prompt-schema-template))
+    (not (literal-executable-lisp-program))
+    (labels-triggers-hooks-and-descriptions (carry-most-of-the-intent-and-prompting-work))
+    (syntax (kept-light-and-consistent))
+    (nesting (strictly-limited-to-5-levels :to-protect-ai-stack)))
+
+  (protocol-2-structure-preferences
+    (prefer (S-expression-style-organization 'symbols 'decision-trees 'flat-structures))
+    (treat-many-internal-records-as (lightweight-internal-database))
+    (favor (surgical-edits-and-replacements over 'compounding-appends))
+    (schemas (mostly-json-schema-like-with-lisp-inspired-structure)))
+
+  (protocol-3-determinism-practices
+    (data-structures-and-shape-first)
+    (halt-generation-on-ambiguity-before-proceeding)
+    (structural-subtraction-and-bounded-growth)
+    (explicit-boundaries-and-responsibility)
+    (anti-ad-hoc-and-anti-special-case)
+    (spotlight-central-ideas (using-xml-style-tags :when-they-need-attention)))
+
+  (protocol-4-modern-ai-facing-elements
+    (encouraged (hooks 'triggers 'xml-emphasis-tags 'yaml-frontmatter-when-useful))
+    (labels-and-descriptions (do-the-heavy-lifting)))
+
+  (protocol-5-scope-and-separation
+    (these-are (strictly-internal-only))
+    (never-appear-in (human-facing-documents))
+    (distinct-from (doc-style.mdc))
+    (activate-only-when (writing-internal-flat-files-schemas-decision-structures)))
+
+  (protocol-6-consistency-with-the-set
+    (satisfies (conduct-protocol-4-rule-set-consistency))
+    (satisfies (mdc-authoring-protocol-5))
+    (respects (repo-layout))
+    (selectively-uses (thermonuclear-determinism-principles :without-full-code-mutation-rigor))))
