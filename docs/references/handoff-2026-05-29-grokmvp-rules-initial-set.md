@@ -1,5 +1,8 @@
 # Handoff - Grokmvp Cursor Rules Scaffolding (2026-05-29 session)
 
+## Later 2026-05-29 update
+Repair of the last 3 cursor-landing references (dual-publish, references, skill-workflow) committed and pushed; branch is now clean and up to date with origin/main. Frontmatter tuning pass executed per the open item: removed `docs/references/**` from internal-doc-style globs (eliminates activation on human prose in docs/references/); added `assets/**` so the machine record activates the internal rule. Updated this handoff and the assets activation record with matching changes. All edits surgical. No test command exists in the workspace.
+
 ## Session Goal
 Initialize a clean, consistent set of generic Cursor `.mdc` agent rules for this new prototype workspace (c:\Project\Grokmvp). Extracted/adapted from cursor-landing reference files into a house pseudo-Lisp `(def-sop ...)` style, with clear human vs. internal separation, appropriate determinism, user's repo shape preferences, and work habits enforced.
 
@@ -12,10 +15,10 @@ Initialize a clean, consistent set of generic Cursor `.mdc` agent rules for this
   - `repo-layout.mdc` (always) — main deliverable in dedicated subfolder; root tolerant of manual docs/junk you drop by hand; supporting material in `docs/references/`, `docs/assets/`, etc.; explicit halt/permission before agent-generated material in root.
   - `mdc-authoring.mdc` (globs: `.cursor/rules/**`) — how to write Cursor-compatible .mdc files (frontmatter contracts, focused splitting, set-wide form consistency).
   - `doc-style.mdc` (globs: `README.md, docs/**, *.md`) — plain language + O'Reilly-style clarity for all human-facing docs; low reading load, no hype/slang/dense prose.
-  - `internal-doc-style.mdc` (globs targeting `docs/references/**`, `docs/assets/**`, `docs/internal/**`, etc.) — Lisp-shaped architectural prompts/schemas/templates for internal use only (see below).
+  - `internal-doc-style.mdc` (globs: `assets/**, docs/assets/**, docs/internal/**, internal/**, schemas/**` — human-prose docs/references/ now excluded per tuning) — Lisp-shaped architectural prompts/schemas/templates for internal use only (see below).
 - **Reference material**:
   - 5 finished `cursor-landing-*.mdc` now in `docs/references/` (conduct, safety, mdc-authoring, repo-layout, doc-style).
-  - Remaining 3 still in `.cursor/rules/` (dual-publish, references, skill-workflow — several open in your IDE at end of session).
+  - Remaining 3 removed from `.cursor/rules/` (repair committed and pushed after session; see Later update above).
 - **Supporting folders**: `.cursor/rules/assets/` (empty, available per your preference); `docs/references/` (finished refs + future internal Lisp artifacts).
 - **No tests/**, pytest.ini, pyproject.toml, package.json, Makefile, README.md, or AGENTS.md yet. Per `conduct.mdc`: after any non-trivial change, run whatever test command exists (currently none) and report explicitly before claiming done.
 - **Git**: main branch only.
