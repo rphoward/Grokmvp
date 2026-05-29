@@ -1,0 +1,48 @@
+(def-sop thermo-nuclear-implementation
+  (context
+    (target "autonomous-agent")
+    (optimization "maximum-determinism-minimum-tps-slop"))
+
+  <central_idea>
+  (center-of-gravity
+    (invariant "Code behavior is strictly downstream of data structures; eliminate complexity via structural subtraction, and halt/escalate immediately rather than guessing."))
+  </central_idea>
+
+  (protocol-1-discovery-and-escalation
+    (search-pre-flight
+      (if (not (in-active-context? helper))
+          (execute-ide-search :targets '("/utils" "/models" "/shared"))
+          (fail :reason "Forbidden to assume non-existence without explicit codebase verification")))
+    (grill-interrogation
+      (if (or (ambiguous? requirement) (ambiguous? data-shape) (ambiguous? boundary))
+          (progn
+            (halt-generation)
+            (query-human :count 1 :propose-recommendation t)
+            (wait-for-resolution)))))
+
+  (protocol-2-architecture-and-mutation
+    (code-judo
+      (match task-type
+        (:feature (reframe-architecture :action 'delete-moving-parts :target-state 'inevitable-in-hindsight))
+        (:cosmetic-or-isolated-bug (execute-surgical-line-edits :surface-area 'minimum))))
+    (bounded-growth
+      (if (and (file-lines>? 1300) (not (is-bug-fix? task)))
+          (progn
+            (execute-single-surgical-extraction)
+            (reduce-surface-area))
+          (forbidden 'arbitrary-expansion-of-compact-modules)))
+    (anti-spaghetti
+      (assert (not (or (has-ad-hoc-boolean? diff) (has-special-case-branch? diff))))
+      (remedy (extract-to (or 'state-machine 'policy-object)))))
+
+  (protocol-3-boundaries-and-execution
+    (type-first
+      (assert (not (or (uses-any? diff) (uses-untyped-dict? diff) (uses-generic-wrapper? diff))))
+      (enforce (define-strict-distinct-schemas :inbound t :outbound t))
+      (forbidden 'lazy-optionality-to-bypass-compiler))
+    (failure-routing
+      (assert (not (or (swallows-error? diff) (returns-silent-null? diff))))
+      (enforce (progn (fail-loudly-at-contract-boundary) (route-typed-domain-exceptions))))
+    (harness-safety
+      (enforce (progn (terminal-calls-are 'non-interactive-one-liners) (use-shell 'posix-compliant-bash)))
+      (forbidden (or 'raw-powershell-scripts 'unhandled-panics-crashing-host-process)))))
