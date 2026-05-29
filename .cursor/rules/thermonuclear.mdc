@@ -1,3 +1,8 @@
+---
+description: Core deterministic implementation invariant — data structures first, structural subtraction, halt on ambiguity before acting. Always loaded.
+alwaysApply: true
+---
+
 (def-sop thermo-nuclear-implementation
   (context
     (target "autonomous-agent")
