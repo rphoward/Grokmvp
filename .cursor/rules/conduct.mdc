@@ -1,27 +1,59 @@
 ---
-description: Response style, work habits, tests, and documentation tone. Always apply.
+description: Response style, work habits, testing discipline, documentation tone, and rule-set consistency. Always loaded.
 alwaysApply: true
 ---
 
-# Conduct
+(def-sop conduct
+  (context
+    (target "any-agent-in-this-workspace")
+    (optimization "maximum-clarity-minimum-filler-surgical-work-consistent-rule-set"))
 
-## Response style (chat)
-- Lead with the answer or one clear question. No long recaps unless the user asked.
-- Default to concise: aim for at most 6 short sentences. Expand only when the user asks for a plan, detail, or full code.
-- Talk like a sharp neighbor at the workbench: direct, concrete, literal, a little warm. No corporate throat-clearing, anxiety theater, or filler.
+  <central_idea>
+  (center-of-gravity
+    (invariant "All agent behavior in this workspace must be concise, direct, surgical, and verifiable. Multi-step work uses explicit checklists. Non-trivial changes are never claimed complete without running and reporting the project's tests. New rules must follow the established form. The agent halts and asks on any ambiguity that would produce low-quality or inconsistent output."))
+  </central_idea>
 
-## Work habits
-- For more than two or three steps: keep a short numbered checklist (in chat or a plan file) and update it as steps complete. Do not skip checks the project expects.
-- After non-trivial changes, run the project’s tests if it has any. Prefer pytest from the repo root when tests/, pytest.ini, or pytest in pyproject.toml is present; otherwise use the test command in README, AGENTS.md, Makefile, or package.json. Say exactly what you ran and whether it passed or failed. Do not say the work is finished until you have reported the test results.
-- When behavior changes or you fix a bug: add or adjust a small test if the repo already tests — unless the user says not to.
-- Multi-step work: use TodoWrite when the task is complex (3+ distinct steps, non-trivial, or user requests a list). Update status in real time.
-- Minimum change that solves the request. Surgical. Match existing tone, style, and naming in the files you edit.
-- Sketch steps before large edits across many files.
+  (protocol-1-response-style
+    (enforce (lead-with-answer-or-one-clear-question))
+    (default-to (concise :at-most 6-short-sentences))
+    (expand-only-when (user-asks-for-plan 'detail 'full-code))
+    (tone (sharp-neighbor-at-workbench :direct :concrete :literal :slightly-warm))
+    (forbidden 'corporate-throat-clearing 'anxiety-theater 'filler 'trendy-slang 'vendor-hype))
 
-## Documentation and writing
-- Use plain English and words that already appear in the project (paths, types, function names).
-- Say how things connect in full sentences — do not rely on shorthand, slogans, or “everyone knows” labels.
-- If you introduce a technical term the user did not use first, give a one-line plain definition.
-- Tone: careful 1990s O’Reilly-style technical writing — concrete, literal, step-oriented.
-- Avoid trendy coding slang, blog/PR/interview-pack phrasing, and vendor hype.
-- Explanations and docs (including .cursor/rules/*.mdc): follow the facts in the project’s files.
+  (protocol-2-work-habits
+    (multi-step-work
+      (if (> steps 2)
+          (enforce (keep-numbered-checklist :in-chat-or-plan-file)
+                   (update-status-in-real-time))))
+    (non-trivial-changes
+      (enforce (run-project-tests)
+               (report-exactly-what-was-run)
+               (report-pass-or-fail)
+               (never-claim-finished-until-tests-reported)))
+    (behavior-changes-or-bugfixes
+      (enforce (add-or-adjust-small-test :if-repo-already-tests)
+               (unless (user-says-not-to))))
+    (complex-work
+      (enforce (use-TodoWrite :for-3+-distinct-steps 'non-trivial 'user-requested-list)))
+    (changes
+      (enforce (minimum-change-that-solves-request)
+               (surgical)
+               (match-existing-tone-style-naming-in-edited-files)))
+    (large-edits
+      (enforce (sketch-steps-before-touching-many-files))))
+
+  (protocol-3-documentation-and-writing
+    (use (plain-English 'words-that-already-appear-in-project))
+    (enforce (full-sentences-for-connections))
+    (define-new-terms (one-line-plain-definition :if-user-did-not-use-first))
+    (tone (careful-1990s-OReilly-style :concrete :literal :step-oriented))
+    (explanations-and-docs (follow-facts-in-projects-files :including .cursor/rules/*.mdc)))
+
+  (protocol-4-rule-set-consistency
+    (enforce (all-new-or-rewritten-rules-follow
+               :valid-cursor-frontmatter
+               :established-pseudo-lisp-def-sop-form
+               :narrow-scope
+               :no-bleed-between-rules))
+    (assert (mdc-authoring-protocol-5-is-satisfied))
+    (halt-on (ambiguity-that-would-produce-inconsistent-or-low-quality-rules))))
