@@ -1,41 +1,61 @@
 ---
-description: Guidance for writing Cursor .mdc rule files — frontmatter, globs, and when to split.
-alwaysApply: false
+description: Pseudo-Lisp SOP for writing composable Cursor .mdc rules — frontmatter schemas, structural subtraction, legacy ports, and cross-rule composability with thermonuclear invariants.
+globs: .cursor/rules/**
 ---
 
-# MDC authoring
+(def-sop mdc-authoring
+  (context
+    (target "cursor-rule-authoring-agent")
+    (optimization "maximum-determinism-minimum-slop-composable-rules"))
 
-## Frontmatter
+  <central_idea>
+  (center-of-gravity
+    (invariant "Every .mdc rule file is a data structure that drives agent behavior strictly downstream of its form; authoring must perform structural subtraction to the smallest explicit composable unit, declare strict applicability contracts at the boundary via frontmatter, and halt/escalate immediately on any ambiguity of purpose, data shape, or scope."))
+  </central_idea>
 
-Every .mdc file starts with this block:
+  (protocol-1-discovery-and-requirement-grilling
+    (pre-flight-inventory
+      (execute-ide-search :targets '(".cursor/rules/*.mdc" "current rules set" "legacy .cursorrules or equivalent if present")))
+    (grill-interrogation
+      (if (or (ambiguous? rule-purpose) (ambiguous? target-scope) (ambiguous? data-shape-driven-by-rule))
+          (progn
+            (halt-generation)
+            (query-human :count 1 :propose-recommendation t)
+            (wait-for-resolution)))))
 
-```yaml
----
-description: One line that appears in the rule picker
-alwaysApply: true          # use for broad rules that must always load
-# or
-globs: src/**/*.ts, docs/**
----
-```
+  (protocol-2-frontmatter-as-strict-boundary-schema
+    (frontmatter-contract
+      (enforce (progn
+        (description :one-line-picker-text)
+        (match applicability-contract
+          (:universal-short-habit (alwaysApply :true))
+          (:path-folder-or-type-specific (globs "exact/**/pattern"))
+          (otherwise (forbidden 'omitting-or-mixing-contracts)))))
+      (valid-keys-only
+        (assert (set-equals? (keys frontmatter) '(description alwaysApply globs)))
+        (enforce (no-undocumented-keys :in-any-rule))))
+    (application-guidance
+      (always-apply-for (or 'conduct 'safety 'core-habits 'universal-invariants))
+      (globs-for (or 'language-specific 'directory-specific 'workflow-specific))))
 
-- `alwaysApply: true` suits short, always-needed rules such as conduct or safety.
-- `globs` limits the rule to matching paths or folders. Use this for stack-specific or folder-specific detail.
-- Supported keys are `description`, `alwaysApply`, and `globs`. Do not add other keys.
-
-## Prefer focused rules over giant ones
-
-Split guidance across several small .mdc files instead of one large always-on file.
-
-A practical layout in most projects:
-
-- Always-on minimum: one file for response style and habits, one for hard safety limits.
-- Broad but not universal: repo layout, build workflow, or coding standards.
-- Narrow detail: rules that apply only to certain directories or file types (for example, a Python-specific rule under `globs: **/*.py`).
-
-This keeps each rule short, easy to reason about, and fast for the editor to apply.
-
-## Legacy single-file formats
-
-Old `.cursorrules` files (or similar) held everything in one blob. Move their content into one or more `.cursor/rules/*.mdc` files during migration. The same applies to other legacy rule files from other tools: inventory what they contain and port the useful parts to scoped .mdc files.
-
-Keep the new rules small and targeted.
+  (protocol-3-structural-subtraction-and-guaranteed-composability
+    (bounded-focus
+      (if (rule-surface-exceeds-minimal-focused-unit)
+          (progn
+            (execute-single-surgical-extraction :to-new-mdc)
+            (reduce-surface-area))))
+    (anti-ad-hoc-blob
+      (assert (not (or (has-ad-hoc-sections? diff) (has-unstructured-prose-blob? diff))))
+      (remedy (extract-to (or 'dedicated-focused-mdc 'policy-rule))))
+    (legacy-port-as-typed-extraction
+      (enforce (progn
+        (inventory-legacy-blob)
+        (port-only-useful-parts-to-scoped-mdc)
+        (delete-legacy-blob-form))))
+    (composability-with-existing-invariants
+      (enforce (new-rule-satisfies-thermonuclear-principles
+                 :data-structures-drive-behavior
+                 :structural-subtraction
+                 :explicit-boundaries
+                 :halt-on-ambiguity))
+      (assert (no-conflict-with 'thermonuclear 'conduct 'safety 'any-prior-focused-rule)))))
