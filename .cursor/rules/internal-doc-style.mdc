@@ -1,6 +1,6 @@
 ---
 description: Structure, tone, and determinism rules for internal-only Lisp-shaped documentation, schemas, prompts, and decision artifacts. Never human-facing.
-globs: assets/**, docs/assets/**, docs/internal/**, internal/**, schemas/**
+globs: assets/**
 ---
 
 (def-sop internal-doc-style

@@ -1,6 +1,6 @@
 ---
 description: Tone and clarity guidelines for human-facing documentation. Use plain language + O'Reilly-style clarity. Easy to read.
-globs: README.md, docs/**, *.md
+globs: README.md, docs/**
 ---
 
 (def-sop doc-style

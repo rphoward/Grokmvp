@@ -27,14 +27,16 @@ globs: .cursor/rules/**
 
   (protocol-2-frontmatter-as-strict-applicability-contract
     (enforce (valid-cursor-frontmatter-only))
-    (match activation-mode
-      (:always-loaded (alwaysApply :true))
-      (:auto-attach-on-files (globs "exact/**/pattern"))
-      (:agent-decides-relevance (description "one-line purpose for the model to evaluate"))
-      (otherwise (forbidden 'mixing-modes 'omitting-required-fields)))
     (valid-keys-only
-      (assert (set-equals? (keys frontmatter) '(description alwaysApply globs)))
-      (enforce (no-undocumented-keys))))
+      (assert (subset-of? (keys frontmatter) '(description alwaysApply globs)))
+      (enforce (no-undocumented-keys)))
+    (match activation-mode
+      (:always-apply (alwaysApply :true))
+      (:auto-attach-on-files (alwaysApply :false) (globs "exact/**/pattern"))
+      (:agent-decides-relevance (alwaysApply :false) (description "one-line purpose for the model to evaluate") (forbidden 'globs))
+      (otherwise (forbidden 'alwaysApply-true-with-globs)))
+    (note (description-on-auto-attach-is-optional :cursor-uses-globs-for-activation))
+    (future (prefer-explicit-alwaysApply-on-every-rule-for-portability-and-git-clarity)))
 
   (protocol-3-focused-rules-and-structural-subtraction
     (prefer (multiple-small-focused-rules over 'one-giant-always-on-blob))

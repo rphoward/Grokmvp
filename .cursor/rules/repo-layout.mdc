@@ -23,8 +23,8 @@ alwaysApply: true
 
   (protocol-3-supporting-material
     (enforce (supporting-reusable-generated-material-goes-into-subfolders))
-    (prefer-locations 'docs/references 'docs/assets 'docs/ 'references/ 'scripts/ 'tests/ 'examples/)
-    (explicit-root-exception "root-level assets/ is the deliberate home for machine-only Lisp records, schemas, and generated flat files (user-directed per 2026-05-29 session; see assets/ and the record at assets/rule-glob-hierarchies-and-activation-best-practices.md)"))
+    (prefer-locations 'docs/references 'docs/ 'references/ 'scripts/ 'tests/ 'examples/)
+    (explicit-root-exception "root-level assets/ is the deliberate home for machine-only Lisp records, schemas, and generated flat files"))
 
   (protocol-4-explicit-permission-gate
     (if (would-create-or-move-generated-or-ship-material-into-root)
