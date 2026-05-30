@@ -28,7 +28,7 @@ alwaysApply: true
   (protocol-2-architecture-and-mutation
     (code-judo
       (match task-type
-        (:feature (reframe-architecture :action 'delete-moving-parts :target-state 'inevitable-in-hindsight))
+        (:feature (reframe-architecture :derive-from 'data-shapes :action 'delete-moving-parts :target-state 'inevitable-in-hindsight))
         (:cosmetic-or-isolated-bug (execute-surgical-line-edits :surface-area 'minimum))))
     (bounded-growth
       (if (and (file-lines>? 1300) (not (is-bug-fix? task)))
