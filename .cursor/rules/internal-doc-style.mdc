@@ -1,5 +1,6 @@
 ---
-description: Structure, tone, and determinism rules for internal-only Lisp-shaped documentation, schemas, prompts, and decision artifacts. Never human-facing.
+description: USE WHEN editing assets/** internal Lisp-shaped schemas, prompts, and decision artifacts.
+alwaysApply: false
 globs: assets/**
 ---
 
@@ -42,10 +43,11 @@ globs: assets/**
     (these-are (strictly-internal-only))
     (never-appear-in (human-facing-documents))
     (distinct-from (doc-style.mdc))
-    (activate-only-when (writing-internal-flat-files-schemas-decision-structures)))
+    (injected-when (path-scoped :assets/**)))
 
   (protocol-6-consistency-with-the-set
     (satisfies (conduct-protocol-4-rule-set-consistency))
     (satisfies (mdc-authoring-protocol-5))
     (respects (repo-layout))
-    (selectively-uses (thermonuclear-determinism-principles :without-full-code-mutation-rigor))))
+    (internal-artifacts (protocol-3-determinism-only))
+    (implementation-code (defer-to 'thermonuclear.mdc))))

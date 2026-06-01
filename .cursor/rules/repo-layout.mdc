@@ -1,34 +1,39 @@
 ---
-description: Preferred repository shape — development in dedicated folders, root tolerance for manual junk, supporting material in subfolders. Always loaded.
+description: USE WHEN creating, moving, or placing files; find product home via project-slug folder at repo root.
 alwaysApply: true
 ---
 
 (def-sop repo-layout
   (context
     (target "any-agent-working-in-this-workspace")
-    (optimization "clear-development-boundaries-root-tolerance-for-manual-junk"))
+    (optimization "one-named-product-home-portable-across-repos"))
 
   <central_idea>
   (center-of-gravity
-    (invariant "The main deliverable develops inside its own dedicated folder. The root is intentionally allowed to collect manual docs, experiments, and temporary junk that the user drops by hand. All supporting, reusable, or generated material belongs in subfolders. Development artifacts and ship output must not pollute the root unless the user explicitly directs it."))
+    (invariant "Each repository has one product home: a top-level folder whose name is this project's slug. Implementation and app code live only inside that folder (or its subfolders). The repo root is workspace shell plus manual staging—not where the product grows."))
   </central_idea>
 
-  (protocol-1-development-location
-    (enforce (main-deliverable-lives-in-dedicated-folder))
-    (forbidden (spreading-final-product-across-root)))
+  (protocol-1-project-slug-home
+    (define project-slug-home "repo-root/<project-slug>/ sibling to .cursor docs assets Planner tests")
+    (resolve-slug-from (repository-folder-name 'root-README 'user-statement :if-ambiguous halt-and-ask))
+    (enforce (implementation-and-shipped-app-code-under project-slug-home))
+    (forbidden (product-code-at-repo-root 'generic-app-folders-at-root-without-user-explicit))
+    (note "Portable rule: slug varies per repo; never hardcode a slug in other rules except examples."))
 
-  (protocol-2-root-tolerance
+  (protocol-2-root-staging-yard
     (allow (user-drops-docs 'experiments 'temporary-junk-manually-into-root))
     (forbidden (agent-creating-junk 'build-artifacts 'ship-output 'generated-files-in-root-without-explicit-permission)))
 
-  (protocol-3-supporting-material
-    (enforce (supporting-reusable-generated-material-goes-into-subfolders))
-    (prefer-locations 'docs/references 'docs/ 'references/ 'scripts/ 'tests/ 'examples/)
-    (explicit-root-exception "root-level assets/ is the deliberate home for machine-only Lisp records, schemas, and generated flat files"))
+  (protocol-3-supporting-trees
+    (enforce (supporting-material-in-named-subfolders-not-mixed-into-product-home))
+    (roles
+      (docs/ "human-facing prose")
+      (assets/ "machine Lisp records schemas flat generated internals")
+      (Planner/ "planning and slice orchestration only")
+      (tests/ "verification when present at repo root")
+      (.cursor/ "agent rules and IDE config"))
+    (explicit-root-exception "assets/ may hold machine-only artifacts per protocol-3 roles"))
 
   (protocol-4-explicit-permission-gate
-    (if (would-create-or-move-generated-or-ship-material-into-root)
-        (progn
-          (halt)
-          (ask-user-explicit-permission)
-          (wait-for-resolution)))))
+    (if (would-place-generated-or-ship-output-at-repo-root)
+        (progn (halt) (ask-user-explicit-permission) (wait-for-resolution))))

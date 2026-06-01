@@ -1,6 +1,7 @@
 ---
-description: Tone and clarity guidelines for human-facing documentation. Use plain language + O'Reilly-style clarity. Easy to read.
-globs: README.md, docs/**
+description: USE WHEN editing README.md or docs/** human prose; plain language and O'Reilly clarity.
+alwaysApply: false
+globs: README.md, **/README.md, docs/**
 ---
 
 (def-sop doc-style

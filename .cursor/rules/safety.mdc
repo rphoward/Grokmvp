@@ -1,5 +1,5 @@
 ---
-description: Hard limits on destructive actions, secrets, scope, risky edits, and mandatory halt before acting on any unverified safety-relevant assumption. Always loaded.
+description: USE WHEN actions touch destruction, secrets, scope, risk, or unverified safety facts.
 alwaysApply: true
 ---
 

@@ -1,5 +1,6 @@
 ---
-description: Pseudo-Lisp SOP for authoring Cursor-compatible .mdc rule files in this workspace — frontmatter contracts, focused splitting, legacy ports, and enforcement of consistent rule form across the set.
+description: USE WHEN creating or editing .cursor/rules/*.mdc; frontmatter, globs syntax, injection modes.
+alwaysApply: false
 globs: .cursor/rules/**
 ---
 
@@ -10,7 +11,7 @@ globs: .cursor/rules/**
 
   <central_idea>
   (center-of-gravity
-    (invariant "Every .mdc rule file in this workspace must be a valid Cursor data structure with strict frontmatter contracts and minimal focused scope; authoring must perform structural subtraction to the smallest explicit unit, enforce a single consistent form across the entire rule set, and halt immediately on any ambiguity of rule purpose, applicability, or boundary."))
+    (invariant "Every .mdc is valid Cursor frontmatter plus a focused pseudo-Lisp SOP; declare injection mode explicitly; keep each file small (aim 30-50 lines); halt on ambiguous purpose or scope."))
   </central_idea>
 
   (protocol-1-purpose-and-scope-grilling
@@ -25,18 +26,35 @@ globs: .cursor/rules/**
             (query-human :count 1 :propose-recommendation t)
             (wait-for-resolution)))))
 
-  (protocol-2-frontmatter-as-strict-applicability-contract
-    (enforce (valid-cursor-frontmatter-only))
-    (valid-keys-only
-      (assert (subset-of? (keys frontmatter) '(description alwaysApply globs)))
-      (enforce (no-undocumented-keys)))
-    (match activation-mode
-      (:always-apply (alwaysApply :true))
-      (:auto-attach-on-files (alwaysApply :false) (globs "exact/**/pattern"))
-      (:agent-decides-relevance (alwaysApply :false) (description "one-line purpose for the model to evaluate") (forbidden 'globs))
-      (otherwise (forbidden 'alwaysApply-true-with-globs)))
-    (note (description-on-auto-attach-is-optional :cursor-uses-globs-for-activation))
-    (future (prefer-explicit-alwaysApply-on-every-rule-for-portability-and-git-clarity)))
+  (protocol-2-frontmatter-and-injection
+    (valid-keys-only (description alwaysApply globs))
+    (every-file-must-declare (alwaysApply true-or-false))
+    (flat-store-only ".cursor/rules/*.mdc" (forbidden 'subfolders-under-rules))
+    (globs-field
+      (format "one comma-separated string, unquoted, no YAML lists, no brace groups")
+      (example "src/**/*.ts,tests/**/*.py"))
+    (forbidden 'alwaysApply-true-with-globs)
+    (injection-vs-activation
+      (note "Injection puts this rule file body into context; activation is whether the model follows it.")
+      (mode :global-baseline
+        (alwaysApply true)
+        (omit globs)
+        (rule-body-injected-every-session))
+      (mode :path-scoped
+        (alwaysApply false)
+        (globs required)
+        (when "a file matching globs is open or referenced"
+          (inject "this rule file body")))
+      (mode :intent-scoped
+        (alwaysApply false)
+        (omit globs)
+        (description "USE WHEN …" under-120-chars)
+        (inject "rule body when model judges intent matches description")))
+    (description
+      (audience "model indexing and intent match, not human labels")
+      (forbidden "Always loaded" when alwaysApply-is-true)
+      (note "global-baseline may use USE WHEN for index clarity; body still injects every session"))
+    (global-baseline-set (keep-small) (prefer path-scoped-or-intent-scoped for detail)))
 
   (protocol-3-focused-rules-and-structural-subtraction
     (prefer (multiple-small-focused-rules over 'one-giant-always-on-blob))
