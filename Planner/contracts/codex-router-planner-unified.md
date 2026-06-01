@@ -382,19 +382,14 @@ edit other `Planner/contracts/` files for adoption.
     (purpose
       "Translate conceptual planner vocabulary to physical layer names.")
 
-    (active_project cursor-landing)
+    (active_project grokmvp)
 
-    (cursor-landing
+    (grokmvp
       (conceptual_to_physical
-        (domain          references/)
-        (application     SKILL.md)
-        (infrastructure  (assets/ scripts/))
-        (presentation    (README.md OVERVIEW.md READMEback.md)))
-
-      (physical_only
-        (bootstrap
-          (owns "wires concrete adapters to use cases")
-          (note "not a planner layer; physical-only; N/A for skill factory")))
+        (domain          Grokmvp/)
+        (application     Grokmvp/)
+        (infrastructure  (assets/ tests/))
+        (presentation    (README.md docs/ Grokmvp/README.md)))
 
       (forbidden_physical_folders
         src
@@ -405,10 +400,10 @@ edit other `Planner/contracts/` files for adoption.
 
       (notes
         (mapping_notes
-          "Authoritative table: Planner/intake/SPEC-SEED-cursor-landing.md §7.
-           Planner/contracts/*.md edits are kit maintenance, not domain product code.
-           Factory maintainer rules: .cursor/rules/cursor-landing-*.mdc.
-           Publishable install tree (when scaffolded): cursor-landing/ subfolder."))
+          "Authoritative table: Planner/intake/SPEC-SEED-grokmvp.md §7.
+           Product code lives only under Grokmvp/ per repo-layout.mdc.
+           Repo root holds workspace shell (.cursor/, docs/, assets/, Planner/).
+           Planner/contracts/*.md edits are kit maintenance, not product code."))
 
       (source_of_truth
         "project_layer_mapping block in this contract, filled during Planner

@@ -8,7 +8,7 @@ Use the phrases below only if you want shorthand. The agent should still read `r
 
 ## Deprecated workflow
 
-Earlier versions of this repo told you to paste “Brief 0–5” for every step. That does **not** match the v4 unified planner. Keep this file for **short phrases**, not as the main process.
+Earlier versions told you to paste “Brief 0–5” for every step. That does **not** match the v4 unified planner. Keep this file for **short phrases**, not as the main process.
 
 ---
 
@@ -16,7 +16,7 @@ Earlier versions of this repo told you to paste “Brief 0–5” for every step
 
 | Router mode | You can say |
 |-------------|-------------|
-| `create_phase_map` | “Create the phase map from `Planner/intake/SPEC-SEED-cursor-landing.md`.” |
+| `create_phase_map` | “Create the phase map from `Planner/intake/SPEC-SEED-grokmvp.md`.” |
 | Phase map review | “Validate PHASE-MAP with phase_map_review_prompt.” |
 | `create_slice_list` | “Create the slice list.” |
 | `approve_or_revise_slice_list` | “Approve the slice list.” / “Revise slice N in the list.” |
@@ -29,11 +29,11 @@ Earlier versions of this repo told you to paste “Brief 0–5” for every step
 ## Seed path (always name it)
 
 ```text
-Planner/intake/SPEC-SEED-cursor-landing.md
+Planner/intake/SPEC-SEED-grokmvp.md
 ```
 
-Plus skill-only constraint:
+Repo constraint:
 
 ```text
-This is the cursor-landing skill factory. No src/ application. See references/skill-authoring.md.
+Product code under Grokmvp/ only. See repo-layout.mdc and SPEC-SEED §7.
 ```

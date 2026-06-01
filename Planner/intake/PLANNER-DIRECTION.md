@@ -1,4 +1,4 @@
-# Direction for the unified planner (cursor-landing)
+# Direction for the unified planner (Grokmvp)
 
 **Audience:** You, when preparing a planner session — and the AI when it runs the v4 router.
 
@@ -10,7 +10,7 @@ This repo is **standalone_target** planning: contracts live under `Planner/`. Th
 
 | Planner term | Your file |
 |--------------|-----------|
-| `source_material` (create_phase_map) | [SPEC-SEED-cursor-landing.md](SPEC-SEED-cursor-landing.md) |
+| `source_material` (create_phase_map) | [SPEC-SEED-grokmvp.md](SPEC-SEED-grokmvp.md) |
 | `source_packet` (create_slice_list, plan_next_slice, …) | Same seed + approved `PHASE-MAP.md` |
 
 **Before any planner session:** Job A in [START-HERE.md](START-HERE.md) — grill until the seed is trustworthy.
@@ -18,10 +18,10 @@ This repo is **standalone_target** planning: contracts live under `Planner/`. Th
 Minimum seed content (matches [SPEC-SEED.stub.md](SPEC-SEED.stub.md) and router `require_fields`):
 
 - Goal and non-goals  
-- Constraints (skill-only repo; install bundle; no auto MCP merge)  
+- Constraints (repo-layout; product under `Grokmvp/`; no auto scope creep)  
 - Definition of done / proof  
 - Proposed phases (becomes PHASE-MAP body)  
-- `project_layer_mapping` notes for slug `cursor-landing` (see seed §7)
+- `project_layer_mapping` notes for slug `grokmvp` (see seed §7)
 
 Do **not** point `create_phase_map` at README alone.
 
@@ -29,13 +29,13 @@ Do **not** point `create_phase_map` at README alone.
 
 ## One-time: project_layer_mapping
 
-In `Planner/contracts/codex-router-planner-unified.md`, replace the `cursor-landing` block per seed §7:
+In `Planner/contracts/codex-router-planner-unified.md`, the `grokmvp` block (per seed §7) should read:
 
-- **domain** → `references/`  
-- **application** → `SKILL.md`  
-- **infrastructure** → `assets/`, `scripts/`  
-- **presentation** → `README.md`, `OVERVIEW.md`  
-- **forbidden_physical_folders** → `src`, `lib`, `apps`, top-level `domain`, `application` as code trees  
+- **domain** → `Grokmvp/`  
+- **application** → `Grokmvp/`  
+- **infrastructure** → `assets/`, `tests/`  
+- **presentation** → `README.md`, `docs/`, `Grokmvp/README.md`  
+- **forbidden_physical_folders** → `src`, `lib`, `apps`, top-level `domain`, `application` at repo root  
 
 Without this, slice `allowed_edits` / `forbidden_edits` will not match the repo.
 
@@ -74,13 +74,13 @@ implement_slice
 
 ---
 
-## cursor-landing slice content rules
+## Grokmvp slice content rules
 
 When the planner plans or implements slices for this product:
 
-- **In scope:** `SKILL.md`, `references/**`, `assets/**`, `scripts/**`, `README.md` / `OVERVIEW.md` / `install.md` when the slice says user-facing docs  
-- **Out of scope:** `src/` application code, any product work under `Planner/adopted/` (reference-only quarantine — see [adopted/README.md](../adopted/README.md)), copying `Planner/` into the user install bundle  
-- **Policy:** [references/skill-authoring.md](../../references/skill-authoring.md), [references/CONTEXT-FORMAT.md](../../references/CONTEXT-FORMAT.md)
+- **In scope:** `Grokmvp/**`, `.cursor/rules/**`, `docs/**`, `assets/**`, `tests/**` when the slice allows  
+- **Out of scope:** parallel product trees at repo root (`src/`, `lib/`, `apps/`, top-level `domain/`, `application/`) per `repo-layout.mdc`  
+- **Planner kit:** edit `Planner/contracts/` only when the slice explicitly scopes kit maintenance  
 
 Embed these in the seed **constraints** and **non_negotiable_intent** so `create_phase_map` extraction rules keep them in PHASE-MAP.
 
@@ -88,12 +88,12 @@ Embed these in the seed **constraints** and **non_negotiable_intent** so `create
 
 ## Multi-phase vs single-phase
 
-| Shape | When for cursor-landing |
-|-------|-------------------------|
-| **multi_phase** | Full roadmap (forensics → packaging → dogfood → release) — writes `PHASE-MAP.md` |
+| Shape | When for Grokmvp |
+|-------|------------------|
+| **multi_phase** | Roadmap with multiple phases — writes `PHASE-MAP.md` |
 | **single_phase** | One small change; phase intent inline in slice list; skips PHASE-MAP |
 
-You said you want **full phase planning** → use **multi_phase**, grill seed §8, then `create_phase_map`.
+For a multi-phase effort, grill seed §5, then `create_phase_map`.
 
 ---
 
@@ -106,7 +106,7 @@ Before `create_slice_list`, you may run the chat-only validator in `Planner/cont
 ## Grill → seed → planner (correct order)
 
 ```text
-1. grill-with-docs  →  updates SPEC-SEED-cursor-landing.md
+1. grill-with-docs  →  updates SPEC-SEED-grokmvp.md
 2. you read seed    →  satisfied
 3. router-state     →  points at slice-runs/<run>/
 4. "create phase map from seed"
@@ -124,7 +124,7 @@ No separate “convert README to seed” step unless README was only your draft 
 
 The router could not find enough **source_material** / **source_packet** on disk.
 
-**Fix:** Ensure `SPEC-SEED-cursor-landing.md` exists, paths in your request are correct, and `PHASE-MAP.md` exists before slice list if you skipped approval step.
+**Fix:** Ensure `SPEC-SEED-grokmvp.md` exists, paths in your request are correct, and `PHASE-MAP.md` exists before slice list if you skipped approval step.
 
 ---
 
@@ -138,4 +138,4 @@ When running the planner in Cursor on this repo, the agent should read:
 4. Seed path you name  
 5. `Planner/AGENTS.md` for planner-routed guardrails  
 
-Not anything under `Planner/adopted/` — that tree is reference-only quarantine, not active run state.
+Do not treat deleted factory paths (`Planner/adopted/`, old `cursor-landing-p*` runs) as active state.

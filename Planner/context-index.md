@@ -9,5 +9,5 @@ Greenfield read order for repositories that carry only this `Planner/` tree:
 4. `Planner/contracts/README.md` — v4 contract stack and read order.
 5. `Planner/phase-map/README.md` — phase map stub and validation gate (chat-only
    per `Planner/contracts/phase_map_review_prompt.md`).
-6. `Planner/intake/SPEC-SEED.stub.md` — replace with your real spec or source
-   packet reference when planning.
+6. `Planner/intake/SPEC-SEED-grokmvp.md` — source packet for this repo (or
+   `SPEC-SEED.stub.md` when adopting the kit elsewhere).
