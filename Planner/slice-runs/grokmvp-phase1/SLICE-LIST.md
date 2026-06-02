@@ -68,7 +68,8 @@ carries required outcomes, non-negotiable intent, and constraints.
       (number  3)
       (name    "context-index factory mode")
       (slice_type standard)
-      (status  pending)
+      (status  passed_closing)
+      (reviewed "2026-06-02")
       (depends none)
       (inspect "Planner/context-index.md (intro reads 'only this Planner/ tree'); seed section 8")
       (done    "context-index.md frames factory workspace vs greenfield kit paste; adopters use SPEC-SEED.stub.md")
@@ -94,9 +95,9 @@ carries required outcomes, non-negotiable intent, and constraints.
 
   (next_action
     (mode        needs_next_slice_plan)
-    (next        "slice 3 — context-index factory mode (ro2)")
+    (next        "slice 4 — rename product home to project-code/ (ro3)")
     (write_only  "RUN_DIR/NEXT-SLICE.md and RUN_DIR/STATUS.md on plan")
-    (do_not_write "PHASE-MAP.md; product rename (slice 4) until planned")))
+    (do_not_write "PHASE-MAP.md; Grokmvp/ rename until slice 4 planned")))
 ```
 
 **Deferred (optional, not slices unless you ask):** minimal smoke-test harness

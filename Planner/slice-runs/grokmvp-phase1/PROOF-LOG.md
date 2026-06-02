@@ -39,5 +39,20 @@ Slice pass records for closeout. Status enum: `passed_closing` | `passed_with_de
       (required_outcomes (ro1))
       (reviewer_note
         "Allowed edits only; context-index and mapping untouched; seed §8 aligned;
-         no cursor-landing reintroduction; root AGENTS.md unchanged."))))
+         no cursor-landing reintroduction; root AGENTS.md unchanged."))
+    (entry
+      (slice_number   3)
+      (slice_name     "context-index factory mode")
+      (slice_type     standard)
+      (status         passed_closing)
+      (reviewed       "2026-06-02")
+      (proof
+        (command  "no 'only this Planner' in context-index.md; greenfield table cites SPEC-SEED.stub.md and TARGET-REPO-LIFT")
+        (result   "OK")
+        (optional "python Grokmvp/hello.py -> Hello, world!"))
+      (required_outcomes (ro2))
+      (reviewer_note
+        "Allowed edits only (context-index.md, README step 3). Factory read order
+         and greenfield adoption path match seed §8 and START-HERE; no mapping,
+         product, rules, or root AGENTS.md changes; layer ownership unchanged."))))
 ```

@@ -13,7 +13,7 @@ tree. Planner-routed work uses the files inside this directory:
 2. The selected run’s `STATUS.md` (path from `active_status`; default stub points
    at `Planner/slice-runs/_template/STATUS.md`) — `current_mode`, `active_slice_file`,
    `next_action`.
-3. `Planner/context-index.md` — thin greenfield index for this kit.
+3. `Planner/context-index.md` — factory vs greenfield navigation for this kit.
 4. `Planner/AGENTS.md` — architecture echo, write boundaries, verification habits
    (before deep-diving contracts).
 5. `Planner/contracts/README.md` — then the v4 contract files in the order listed
