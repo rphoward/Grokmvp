@@ -1,12 +1,13 @@
 # Codex Router Planner — Unified
 
-Status: v4. Replaces v3. This file folds in the first-run fixes:
+Status: v4. Replaces v3. This file folds in the first-run fixes (F1-F6) plus a second-run single_phase routing fix (F7):
 F1 ordering (completed run dominates missing phase_map),
 F2 (`plan_architecture_decision_slice` sets `slice_planned`, not `slice_review_needed`),
 F3 (`ownership_change_gate` accepts `passed_closing` and `passed_with_debt`, not `passed`),
 F4 (`blocking_items_resolution_log` entries are written with `(status flagged)`),
 F5 (`project_layer_mapping` added; conceptual planner layers map to project-specific physical layer names),
 F6 (`phase_initialized` bridges approved multi-phase PHASE-MAP to first slice-list creation before `project_shape` exists).
+F7 (single_phase mid-flight routing: the phase-authoring branch gates on `phase_state project_initiated`, and `project_initiated` also requires `no_project_shape`; a recorded single_phase run with an approved slice list routes to `plan_next_slice`, not `create_phase_map`).
 
 Two shape additions:
 
@@ -171,8 +172,8 @@ edit other `Planner/contracts/` files for adoption.
     (phase_designing
       ← phase_map_being_authored)
 
-    (project_initiated
-      ← no_phase_map AND no_completed_status))
+    (project_initiated   ; F7: also require no_project_shape so a recorded single_phase/multi_phase run derives phase_active, not project_initiated
+      ← no_phase_map AND no_completed_status AND no_project_shape))
 
 
   ; ─── SLICE TIER ───────────────────────────────────────────────────────────
@@ -463,8 +464,9 @@ edit other `Planner/contracts/` files for adoption.
       → phase_contested_gate)
 
     ; Phase authoring — only after completed states ruled out
+    ; F7: gate on derived project_initiated; a recorded project_shape derives phase_active, not phase authoring
 
-    (if (or (and (no phase_map) (no completed_status))
+    (if (or (phase_state project_initiated)
             (user_says create_phase_map))
       (cond
         ((user_says single_phase_project) → create_slice_list_single_phase)
@@ -1103,6 +1105,7 @@ edit other `Planner/contracts/` files for adoption.
     (prior_deferred_sequence_does_not_block_explicit_user_instruction)
     (router_does_not_alias_handler_names)
     (router_does_not_route_completed_status_to_create_phase_map)
+    (router_does_not_route_recorded_project_shape_to_create_phase_map)
     (single_phase_project_does_not_write_PHASE_MAP_md)
     (phase_initialized_does_not_require_project_shape_before_create_slice_list)
     (planner_does_not_create_physical_folders_listed_as_forbidden_in_project_layer_mapping)
