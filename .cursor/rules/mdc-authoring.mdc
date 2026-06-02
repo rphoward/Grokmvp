@@ -79,5 +79,5 @@ globs: .cursor/rules/**
                :established-pseudo-lisp-def-sop-form
                :narrow-scope
                :no-bleed-between-rules))
-    (assert (no-duplication-of-responsibility-with 'conduct 'safety 'thermonuclear 'any-other-rule))
+    (assert (no-duplication-of-responsibility-with 'conduct 'safety 'thermonuclear 'planner-artifacts 'any-other-rule))
     (forbidden 'embedding-coding-discipline 'embedding-safety-logic 'embedding-response-habits-into-authoring-rule)))

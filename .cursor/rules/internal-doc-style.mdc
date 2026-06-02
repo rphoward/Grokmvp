@@ -1,7 +1,7 @@
 ---
-description: USE WHEN editing assets/** internal Lisp-shaped schemas, prompts, and decision artifacts.
+description: USE WHEN editing assets/** or Planner/**/*.md Lisp-shaped schemas, prompts, and decision artifacts.
 alwaysApply: false
-globs: assets/**
+globs: assets/**,Planner/**/*.md
 ---
 
 (def-sop internal-doc-style
@@ -43,11 +43,13 @@ globs: assets/**
     (these-are (strictly-internal-only))
     (never-appear-in (human-facing-documents))
     (distinct-from (doc-style.mdc))
-    (injected-when (path-scoped :assets/**)))
+    (injected-when (path-scoped :assets/** :Planner/**/*.md))
+    (planner-run-artifacts (defer-to 'planner-artifacts.mdc for schema-and-thermonuclear-boundary)))
 
   (protocol-6-consistency-with-the-set
     (satisfies (conduct-protocol-4-rule-set-consistency))
     (satisfies (mdc-authoring-protocol-5))
     (respects (repo-layout))
     (internal-artifacts (protocol-3-determinism-only))
-    (implementation-code (defer-to 'thermonuclear.mdc))))
+    (implementation-code (defer-to 'thermonuclear.mdc))
+    (planner-artifacts (forbidden 'thermonuclear-implementation-protocols))))

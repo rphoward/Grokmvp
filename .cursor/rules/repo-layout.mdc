@@ -36,4 +36,4 @@ alwaysApply: true
 
   (protocol-4-explicit-permission-gate
     (if (would-place-generated-or-ship-output-at-repo-root)
-        (progn (halt) (ask-user-explicit-permission) (wait-for-resolution))))
+        (progn (halt) (ask-user-explicit-permission) (wait-for-resolution)))))

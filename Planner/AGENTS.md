@@ -35,40 +35,51 @@ Resolve state before planning or implementing:
 2. The selected run’s `STATUS.md` (path given by `active_status`) — sole
    authority for `current_mode`, `active_slice_file`, and `next_action` for routed
    work.
-3. `Planner/context-index.md` — short index for this kit.
-4. **`Planner/AGENTS.md` (this file)** — architecture echo and write boundaries.
-5. `Planner/contracts/README.md` — then the v4 contracts in the order listed
-   there (`codex-router-planner-unified.md`, packet schema, architecture rules).
+3. `Planner/AGENTS.md` (this file) — guardrails and write boundaries.
+4. `Planner/contracts/README.md` — v4 contract stack, read order, and artifact registry.
+5. `Planner/context-index.md` — short index for this kit.
 
 Normative architecture rules and vocabulary live in
-`Planner/contracts/domain-spoke-architecture.md`. This file summarizes; that
-file decides when details conflict.
+`Planner/contracts/domain-spoke-architecture.md`.
 
-## Architecture (echo)
+## Architecture
 
-- **Domain center** holds durable business meaning, invariants, and product
-  language. **Spokes** express user or system capabilities outward through the
-  application boundary, **ports**, concrete infrastructure, and **presentation
-  transforms** (UI, HTTP, CLI, etc.).
-- **Planning a slice does not grant permission to bypass architecture.** If a
-  slice would change ownership of meaning, source data, dependency direction, or
-  stack direction, the unified router requires an **architecture decision slice**
-  (see `Planner/contracts/codex-router-planner-unified.md`) before standard
-  implementation proceeds.
-- Prefer **intent-revealing names** (folders, modules, public entry points).
-  Avoid vague catch-alls (`utils`, `helpers`, `manager`, …) unless qualified by
-  domain language; details in `domain-spoke-architecture.md`.
+Architecture is a paramount consideration in all Planner-routed work, not a
+passing one.
+
+Architecture definitions reside in `Planner/contracts/`. The set of allowed
+architectures is declared within the planner contracts. `domain-spoke-architecture.md`
+is the default.
+
+The active router contract (`codex-router-planner-unified.md`) references the
+architecture contract that applies for the current project and run. The router
+and slice discipline require that the correct allowed architecture for the work
+at hand be identified and followed exactly.
+
+The only authorized basis for operating under a given architecture, or for
+deviating from the default, is the presence of that architecture definition as
+one of the allowed contracts in `Planner/contracts/`, together with explicit
+selection through the contracted router and project configuration. No other
+mechanism exists.
 
 ## Project layer mapping (placeholders)
 
-Conceptual planner layers (`domain`, `application`, `infrastructure`,
-`presentation`) map to **your** physical packages and folders in
-`Planner/contracts/codex-router-planner-unified.md` under `project_layer_mapping`.
+For the domain-spoke architecture (the current default), its conceptual planner
+layers (`domain`, `application`, `infrastructure`, `presentation`) map to your
+physical packages and folders via the `project_layer_mapping` block in
+`Planner/contracts/codex-router-planner-unified.md`.
+
 Replace `{{PROJECT_SLUG}}` and `FILL_*` placeholders there. That contract block
-is the machine-readable mapping source for Planner-routed work. The **root**
-`AGENTS.md` of the target repo may echo the durable domain-center boundary or
-defer to `Planner/AGENTS.md`, but it is not required to mirror Planner internals
-and must not carry active run state.
+is the machine-readable mapping source for Planner-routed work under the
+selected architecture.
+
+The **root** `AGENTS.md` of the target repo may echo the durable domain-center
+boundary or defer to `Planner/AGENTS.md`, but it is not required to mirror
+Planner internals and must not carry active run state.
+
+For other allowed architectures, the conceptual layers (if any) and their
+mapping rules are defined in that architecture's contract and selected through
+the unified router contract for the project.
 
 ## Write boundaries (generic)
 

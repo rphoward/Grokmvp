@@ -8,7 +8,8 @@ alwaysApply: true
     (target "autonomous-agent")
     (optimization "maximum-determinism-minimum-tps-slop")
     (apply-body-only-when (paths-under 'repo-layout.mdc project-slug-home 'tests/))
-    (forbidden (apply-body-to 'docs 'Planner 'mdc-rules 'assets)))
+    (forbidden (apply-body-to 'docs 'Planner 'mdc-rules 'assets))
+    (planner-lisp-artifacts (defer-to 'planner-artifacts.mdc 'internal-doc-style.mdc)))
 
   <central_idea>
   (center-of-gravity

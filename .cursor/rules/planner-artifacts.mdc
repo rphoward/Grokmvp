@@ -1,0 +1,43 @@
+---
+description: USE WHEN editing Planner/**/*.md run artifacts; packet schema and STATUS fields only; not product implementation protocols.
+alwaysApply: false
+globs: Planner/**/*.md
+---
+
+(def-sop planner-artifacts
+  (context
+    (target "agent-writing-or-updating-planner-run-artifacts")
+    (optimization "one-shape-per-artifact-no-thermonuclear-bleed"))
+
+  <central_idea>
+  (center-of-gravity
+    (invariant "Planner Lisp-shaped records are routing and extraction state, not product implementation. Follow the artifact registry and packet schema; never apply thermonuclear implementation protocols here."))
+  </central_idea>
+
+  (protocol-1-schema-authority
+    (pre-flight
+      (read "Planner/contracts/README.md artifact registry")
+      (read "Planner/contracts/codex-extraction-packet-schema-sexpr.md")
+      (read "Planner/router-state.md before any per-run STATUS.md"))
+    (halt-generation
+      (if (artifact-type-not-in-registry)
+          (progn
+            (halt-generation)
+            (query-human :count 1 :propose-recommendation "add registry row and schema before writing")
+            (wait-for-resolution))))
+    (forbidden (invent-keys 'invent-top-level-forms 'split-run-state-across-unlisted-files)))
+
+  (protocol-2-thermonuclear-boundary
+    (forbidden (apply 'thermonuclear.mdc implementation-protocols-here))
+    (forbidden (type-first-product-rules 'extract-modules-for-runtime 'harness-safety-shell-rules))
+    (lisp-shape (defer-to 'internal-doc-style.mdc))
+    (routed-discipline (defer-to 'Planner/AGENTS.md 'Planner/contracts/codex-router-planner-unified.md)))
+
+  (protocol-3-editing-discipline
+    (prefer (surgical-edits-to-existing-lisp-fences over 'new-parallel-status-files))
+    (run_status-fields (match '_template/STATUS.md' stub and unified STATUS authority; do-not-invent keys))
+    (slice-and-proof-writes (match packet trigger and required keys from registry row)))
+
+  (protocol-4-consistency
+    (satisfies (mdc-authoring-protocol-5))
+    (respects (repo-layout Planner-tree-role))))

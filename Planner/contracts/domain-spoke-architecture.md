@@ -41,6 +41,10 @@ A slice may cross layers. A slice must not change ownership silently. If a
 slice changes ownership, source data, dependency direction, or stack direction,
 the planner must create an architecture decision slice before implementation.
 
+The exact conditions and router state that require an architecture decision
+slice are defined in the unified contract
+(`codex-router-planner-unified.md`).
+
 ## Shape
 
 ```text
