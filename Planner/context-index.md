@@ -1,8 +1,7 @@
 # Context index (Grokmvp factory workspace)
 
 This repository is the **clone-space factory**: Cursor rules, `Planner/`, human
-`docs/`, user-owned `assets/`, reference product under `Grokmvp/` (target name
-`project-code/` after rename slice), dogfood seed
+`docs/`, user-owned `assets/`, reference product under `project-code/`, dogfood seed
 [`Planner/intake/SPEC-SEED-grokmvp.md`](intake/SPEC-SEED-grokmvp.md), and active
 run `grokmvp-phase1`. Authoritative factory vs greenfield definitions:
 [SPEC-SEED-grokmvp.md §8](intake/SPEC-SEED-grokmvp.md) and
@@ -13,7 +12,8 @@ run `grokmvp-phase1`. Authoritative factory vs greenfield definitions:
 1. `Planner/router-state.md` — active run directory and `STATUS.md` path.
 2. The run `STATUS.md` named by `active_status` (currently
    `Planner/slice-runs/grokmvp-phase1/STATUS.md`) — `current_mode`,
-   `active_slice_file`, `next_action`.
+   `active_slice_file`, `next_action`. When `current_mode` is `complete`, that run
+   is historical; start a new folder under `Planner/slice-runs/` for P2+ work.
 3. `Planner/AGENTS.md` — guardrails, write boundaries, verification habits.
 4. `Planner/CONTEXT.md` — shared vocabulary for this kit.
 5. `Planner/contracts/README.md` — v4 contract stack and read order.

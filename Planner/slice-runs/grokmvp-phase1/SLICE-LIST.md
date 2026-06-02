@@ -17,7 +17,7 @@ carries required outcomes, non-negotiable intent, and constraints.
       (ro4 "Empty assets/ committed as factory layout (user-owned machine-record home)")
       (ro5 "Router runs this seed through slice-list approval and phase closeout, proven by final_closeout with PROOF-LOG entries"))
     (non_negotiable_intent
-      "Product and app code only under the single product home (Grokmvp/ now, project-code/ after rename); repo root is workspace shell"
+      "Product and app code only under project-code/; repo root is workspace shell"
       ".cursor/rules/ are operational guardrails; normative architecture lives in Planner/contracts/; routed work uses an allowed contract (default domain-spoke); the five stub families are not selectable in P1"
       "assets/ is user-owned; router and planner do not write machine records there"
       "no active planner run state in root AGENTS.md"
@@ -79,7 +79,8 @@ carries required outcomes, non-negotiable intent, and constraints.
       (number  4)
       (name    "rename product home to project-code/")
       (slice_type standard)
-      (status  pending)
+      (status  passed_closing)
+      (reviewed "2026-06-02")
       (depends (2 3))
       (inspect "seed section 9 checklist; Grokmvp/ (README.md LICENSE.md hello.py); .cursor/rules/repo-layout.mdc; project_layer_mapping in codex-router-planner-unified.md; root AGENTS.md; repo grep for Grokmvp/ and grokmvp")
       (done    "Grokmvp/ renamed to project-code/; repo-layout factory product-home exception added; project_layer_mapping paths and root AGENTS.md verification path updated; seed section 7 interim note removed; grep clean outside history/docs; python project-code/hello.py passes from repo root")
@@ -94,10 +95,10 @@ carries required outcomes, non-negotiable intent, and constraints.
     (do_not store_active_run_state_in_root_AGENTS))
 
   (next_action
-    (mode        needs_next_slice_plan)
-    (next        "slice 4 — rename product home to project-code/ (ro3)")
-    (write_only  "RUN_DIR/NEXT-SLICE.md and RUN_DIR/STATUS.md on plan")
-    (do_not_write "PHASE-MAP.md; Grokmvp/ rename until slice 4 planned")))
+    (mode        complete)
+    (closed      "2026-06-02")
+    (next        "P1 single_phase project_complete. New phase: new RUN_DIR + router-state.md. Reopen: user_review_reopen.")
+    (backlog     "RUN_DIR/PHASE-BACKLOG.md optional follow-ups")))
 ```
 
 **Deferred (optional, not slices unless you ask):** minimal smoke-test harness

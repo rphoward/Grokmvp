@@ -34,9 +34,8 @@ repos only).
 - **repo-layout:** implementation and shipped app code under **`project-code/`**
   only; repo root is workspace shell. This factory is an exception to
   “resolve slug from repository folder name” (repo is `Grokmvp`, product home is
-  **`project-code/`**). A dedicated slice must update `.cursor/rules/repo-layout.mdc`
-  with that factory note. *(Interim: disk may still show `Grokmvp/` until that
-  slice renames the tree and updates `project_layer_mapping`.)*
+  **`project-code/`**). `.cursor/rules/repo-layout.mdc` records that factory
+  exception.
 - **Rules:** `.cursor/rules/` are operational guardrails; normative architecture
   lives in `Planner/contracts/`.
 - **Architecture gate:** routed work uses an **allowed** contract in
@@ -64,8 +63,7 @@ repos only).
 - Slice proof per `NEXT-SLICE.md` and `PROOF-LOG.md`.
 - Phase closeout per `PHASE-MAP.md` or inline single-phase intent.
 - Non-trivial product changes: lightest available verification (e.g.
-  `python project-code/hello.py` from repo root after rename; until then
-  `python Grokmvp/hello.py`).
+  `python project-code/hello.py` from repo root).
 
 **Phase shape:** the router chooses **single-phase** vs **multi-phase** from seed
 complexity and session signals (`single_phase_project`, `create_phase_map`, etc.);
@@ -83,12 +81,9 @@ P1 **outcomes** (planner slices derive order and dependencies):
 - Update intake/docs for **factory** vs greenfield kit paste (see §8).
 - Fix `Planner/context-index.md` for factory mode; portable adopters use
   `SPEC-SEED.stub.md`, not this repo-specific seed.
-- **`project-code/` rename slice** (planner-owned; use checklist in §9)—disk,
-  mapping, rules, and docs must move together.
-- Refresh active run `STATUS.md` / `next_action` after seed approval (stale
-  `NEED_SOURCE` text is expected until router runs on this seed).
-- Optional slices only when needed: minimal smoke test harness, further arch stub
-  research (no stub selection in P1).
+- **`project-code/` rename slice** — completed (slice 4; checklist §9).
+- P1 planner loop closed out in `grokmvp-phase1` (`STATUS.md` `complete`, 2026-06-02).
+- Optional post-P1: `Planner/slice-runs/grokmvp-phase1/PHASE-BACKLOG.md` (gitignore debt, smoke tests, arch stub research).
 
 ## 6. Already delivered (do not re-slice)
 
@@ -101,10 +96,9 @@ Manual / pre-grill factory work already on disk:
   and **allowed architectures** table (domain-spoke selectable; five stubs not).
 - `Planner/contracts/domain-spoke-architecture.md` + architecture stub files for
   later research.
-- `project_layer_mapping` filled for `grokmvp` in unified contract (paths still
-  `Grokmvp/` until rename slice).
+- `project_layer_mapping` filled for `grokmvp` in unified contract (`project-code/` paths).
 - `Planner/slice-runs/grokmvp-phase1/` run wired in `Planner/router-state.md`.
-- Reference `Grokmvp/hello.py` scaffold.
+- Reference `project-code/hello.py` scaffold.
 - Grill handoff: `Planner/intake/HANDOFF-grill-spec-seed-2026-06-02.md`.
 
 ## 7. Layer mapping (physical)
@@ -113,8 +107,6 @@ Authoritative block: `project_layer_mapping` /
 `(active_project grokmvp)` in
 `Planner/contracts/codex-router-planner-unified.md`.
 
-**Target** mapping for this factory (after rename slice aligns disk and contract):
-
 | Conceptual | Physical |
 |------------|----------|
 | domain | `project-code/` |
@@ -122,8 +114,6 @@ Authoritative block: `project_layer_mapping` /
 | infrastructure | `assets/`, `tests/` |
 | presentation | `README.md`, `docs/`, `project-code/README.md` |
 | forbidden (repo root) | `src/`, `lib/`, `apps/`, top-level `domain/`, `application/` as parallel product trees |
-
-**Current disk (interim):** `Grokmvp/` per contract until a slice updates mapping.
 
 `Planner/` and `Planner/contracts/` are **factory / kit maintenance**, not
 product code under `project-code/`, unless a slice explicitly scopes planner edits.
@@ -140,20 +130,17 @@ wired—not an empty `project-code/` tree alone.
 
 ## 9. Rename slice — `project-code/` (checklist for planner)
 
-No `.cursor/rules` file hardcodes `Grokmvp/` today; **repo-layout** infers product
-home from the repository folder name unless the factory exception is added.
-**thermonuclear** scopes via `project-slug-home` from repo-layout. When this
-slice runs, complete all of:
+Completed in slice 4 (2026-06-02):
 
-- [ ] `.cursor/rules/repo-layout.mdc` — factory product home is `project-code/`
+- [x] `.cursor/rules/repo-layout.mdc` — factory product home is `project-code/`
       (override repo-name resolution for this workspace only).
 - [ ] Optional: `.cursor/rules/thermonuclear.mdc` — literal `project-code/**` in
-      `apply-body-only-when` if tighter code-review scope is needed.
-- [ ] Rename `Grokmvp/` → `project-code/` on disk (hello scaffold and README).
-- [ ] `Planner/contracts/codex-router-planner-unified.md` — `project_layer_mapping`
-      paths to `project-code/` (keep or rename `active_project` key per slice plan).
-- [ ] Root `AGENTS.md` — verification command path.
-- [ ] This seed §7 — remove interim `Grokmvp/` note when done.
-- [ ] Repo grep for `Grokmvp/` and stale `grokmvp` mapping references outside history/docs.
+      `apply-body-only-when` if tighter code-review scope is needed (deferred; repo-layout factory exception suffices).
+- [x] Rename `Grokmvp/` → `project-code/` on disk (hello scaffold and README).
+- [x] `Planner/contracts/codex-router-planner-unified.md` — `project_layer_mapping`
+      paths to `project-code/` (`active_project` key remains `grokmvp`).
+- [x] Root `AGENTS.md` — verification command path.
+- [x] This seed §7 — aligned with disk and contract.
+- [x] Repo grep for `Grokmvp/` path references outside `docs/references/` (repo name / factory title OK).
 
 Proof: `python project-code/hello.py` from repo root passes.

@@ -13,10 +13,10 @@
 ## Job B — Planner loop
 
 - [x] Copy `slice-runs/_template` → `slice-runs/grokmvp-phase1/`; wire [router-state.md](../router-state.md)
-- [ ] Ask planner: **create phase map** from seed → read [PHASE-MAP.md](../phase-map/PHASE-MAP.md) when created → **you OK** (or say **single_phase_project** for a small task)
-- [ ] Ask planner: **create slice list** → read SLICE-LIST → **you OK**
-- [ ] Repeat: planner plans next slice → you say **implement** → review → until phase closeout
-- [ ] Next phase: new run folder if PHASE-MAP says so
+- [x] **single_phase_project** — skipped `PHASE-MAP.md`; inline `phase_intent` in [SLICE-LIST.md](../slice-runs/grokmvp-phase1/SLICE-LIST.md)
+- [x] Slice list approved; slices 1–4 implemented and reviewed (2026-06-02)
+- [x] **final_closeout** — [STATUS.md](../slice-runs/grokmvp-phase1/STATUS.md) `complete`; optional items in [PHASE-BACKLOG.md](../slice-runs/grokmvp-phase1/PHASE-BACKLOG.md)
+- [ ] **P2+:** new `slice-runs/<run-name>/`, update `router-state.md`, grill seed or new spec — do not reuse completed `grokmvp-phase1` RUN_DIR for new phase work
 
 ---
 

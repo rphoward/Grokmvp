@@ -59,7 +59,7 @@ _Avoid_: inventing keys or parallel status files.
 
 **Product home**:
 Top-level folder whose name is the project slug; implementation code lives only
-there (per `repo-layout.mdc`). In this repo, `Grokmvp/`.
+there (per `repo-layout.mdc`). In this factory repo, `project-code/`.
 _Avoid_: "app folder", code at repo root.
 
 **Machine records home**:
@@ -95,7 +95,7 @@ _Avoid_: reading contracts before resolving the active run.
 > **domain-spoke** (**default architecture**) and use an architecture decision
 > slice if ownership changes."
 
-> **Dev:** "I'll update STATUS and code `Grokmvp/`—do I need planner-artifacts?"
+> **Dev:** "I'll update STATUS and code `project-code/`—do I need planner-artifacts?"
 > **Lead:** "STATUS is **disk state** under **Planner/**—follow the **artifact
 > registry** and packet schema. Coding in **product home** is still
 > **planner-routed work**; the unified contract already bound you to the active

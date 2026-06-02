@@ -20,7 +20,7 @@ This workspace is the **factory** (see [SPEC-SEED-grokmvp.md](SPEC-SEED-grokmvp.
 Minimum seed content (matches [SPEC-SEED.stub.md](SPEC-SEED.stub.md) and router `require_fields`):
 
 - Goal and non-goals  
-- Constraints (repo-layout; product under `Grokmvp/` today, target `project-code/` per seed §7–9; no auto scope creep)  
+- Constraints (repo-layout; product under `project-code/` per seed §7–9 and repo-layout factory exception; no auto scope creep)  
 - Definition of done / proof  
 - Proposed phases (becomes PHASE-MAP body)  
 - `project_layer_mapping` notes for slug `grokmvp` (see seed §7)
@@ -33,10 +33,10 @@ Do **not** point `create_phase_map` at README alone.
 
 In `Planner/contracts/codex-router-planner-unified.md`, the `grokmvp` block (per seed §7) should read:
 
-- **domain** → `Grokmvp/`  
-- **application** → `Grokmvp/`  
+- **domain** → `project-code/`  
+- **application** → `project-code/`  
 - **infrastructure** → `assets/`, `tests/`  
-- **presentation** → `README.md`, `docs/`, `Grokmvp/README.md`  
+- **presentation** → `README.md`, `docs/`, `project-code/README.md`  
 - **forbidden_physical_folders** → `src`, `lib`, `apps`, top-level `domain`, `application` at repo root  
 
 Without this, slice `allowed_edits` / `forbidden_edits` will not match the repo.
@@ -80,7 +80,7 @@ implement_slice
 
 When the planner plans or implements slices for this product:
 
-- **In scope:** `Grokmvp/**`, `.cursor/rules/**`, `docs/**`, `assets/**`, `tests/**` when the slice allows  
+- **In scope:** `project-code/**`, `.cursor/rules/**`, `docs/**`, `assets/**`, `tests/**` when the slice allows  
 - **Out of scope:** parallel product trees at repo root (`src/`, `lib/`, `apps/`, top-level `domain/`, `application/`) per `repo-layout.mdc`  
 - **Planner kit:** edit `Planner/contracts/` only when the slice explicitly scopes kit maintenance  
 

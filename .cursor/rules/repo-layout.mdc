@@ -18,7 +18,11 @@ alwaysApply: true
     (resolve-slug-from (repository-folder-name 'root-README 'user-statement :if-ambiguous halt-and-ask))
     (enforce (implementation-and-shipped-app-code-under project-slug-home))
     (forbidden (product-code-at-repo-root 'generic-app-folders-at-root-without-user-explicit))
-    (note "Portable rule: slug varies per repo; never hardcode a slug in other rules except examples."))
+    (note "Portable rule: slug varies per repo; never hardcode a slug in other rules except examples.")
+    (factory_workspace_grokmvp
+      (product_home "repo-root/project-code/")
+      (override "repository folder may be Grokmvp; product home is project-code/, not repo folder name")
+      (scope "this factory workspace only")))
 
   (protocol-2-root-staging-yard
     (allow (user-drops-docs 'experiments 'temporary-junk-manually-into-root))

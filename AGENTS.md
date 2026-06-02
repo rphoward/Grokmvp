@@ -4,7 +4,7 @@ Operational facts for agents working in this repository.
 
 ## Commands
 
-- Run the reference product: `python Grokmvp/hello.py` from the repo root.
+- Run the reference product: `python project-code/hello.py` from the repo root.
 - No project test suite is configured yet; after non-trivial changes, run whatever verification the active slice or README requires and report the result.
 
 ## Planner-routed work

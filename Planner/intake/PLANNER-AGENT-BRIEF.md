@@ -35,5 +35,5 @@ Planner/intake/SPEC-SEED-grokmvp.md
 Repo constraint:
 
 ```text
-Product code under Grokmvp/ only. See repo-layout.mdc and SPEC-SEED §7.
+Product code under project-code/ only. See repo-layout.mdc and SPEC-SEED §7.
 ```

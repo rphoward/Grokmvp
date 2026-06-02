@@ -387,10 +387,10 @@ edit other `Planner/contracts/` files for adoption.
 
     (grokmvp
       (conceptual_to_physical
-        (domain          Grokmvp/)
-        (application     Grokmvp/)
+        (domain          project-code/)
+        (application     project-code/)
         (infrastructure  (assets/ tests/))
-        (presentation    (README.md docs/ Grokmvp/README.md)))
+        (presentation    (README.md docs/ project-code/README.md)))
 
       (forbidden_physical_folders
         src
@@ -402,7 +402,7 @@ edit other `Planner/contracts/` files for adoption.
       (notes
         (mapping_notes
           "Authoritative table: Planner/intake/SPEC-SEED-grokmvp.md §7.
-           Product code lives only under Grokmvp/ per repo-layout.mdc.
+           Product code lives only under project-code/ per repo-layout.mdc factory exception.
            Repo root holds workspace shell (.cursor/, docs/, assets/, Planner/).
            Planner/contracts/*.md edits are kit maintenance, not product code."))
 
@@ -989,16 +989,27 @@ edit other `Planner/contracts/` files for adoption.
         classification_to_implementation_trace
         blocking_items_resolution_log
         deferrals
+        orientation_sync
         support_doc_sync
         next_slice_cleanup))
 
     (support_doc_sync
       (record_in "RUN_DIR/STATUS.md closeout_validation.support_doc_sync")
       (rule
-        "Record which support docs were checked. Do not mutate support docs
-         to keep active run state synchronized; active Planner run state
-         belongs in Planner/router-state.md and the selected RUN_DIR/STATUS.md.")
+        "Record which support docs were checked. Do not mirror current_mode,
+         active_slice_file, or next_action into root AGENTS.md. Active run state
+         belongs in Planner/router-state.md and RUN_DIR/STATUS.md.")
+      (when_single_phase_before_complete
+        "Also sync Planner/intake/PLANNING-WORKFLOW.md (Job B done), SLICE_LIST
+         source_packet seed (no pre-router NEED_SOURCE bullets), RUN_DIR/SLICE-LIST.md
+         next_action mode complete, Planner/router-state.md notes and updated date;
+         list synced paths under closeout_validation.orientation_sync.
+         context-index.md: optional durable note that complete runs are historical.")
       (allowed_support_doc_writes
+        (single_phase_orientation_files
+          "Only per when_single_phase_before_complete: PLANNING-WORKFLOW.md,
+           SLICE_LIST source_packet seed, RUN_DIR/SLICE-LIST.md next_action,
+           router-state.md notes and updated date.")
         (planner_router_state_md
           "Only when the active-run pointer, active_status, active_phase,
            updated date, or notes must change.")

@@ -17,7 +17,7 @@ This matches the **unified router** in `Planner/contracts/codex-router-planner-u
 
 | Mode | Meaning |
 |------|---------|
-| **Factory** (this repo) | Full workspace: `.cursor/rules/`, `Planner/`, `docs/`, `assets/`, reference product under [`Grokmvp/`](../Grokmvp/) (target name `project-code/` after rename slice), dogfood seed [`SPEC-SEED-grokmvp.md`](SPEC-SEED-grokmvp.md), and active run `grokmvp-phase1`. |
+| **Factory** (this repo) | Full workspace: `.cursor/rules/`, `Planner/`, `docs/`, `assets/`, reference product under [`project-code/`](../../project-code/), dogfood seed [`SPEC-SEED-grokmvp.md`](SPEC-SEED-grokmvp.md), and active run `grokmvp-phase1`. |
 | **Greenfield paste** | Copy the portable kit into another repo; grill and plan from [`SPEC-SEED.stub.md`](SPEC-SEED.stub.md); reset `Planner/router-state.md` and your run folder; fill `project_layer_mapping` in the unified contract. Do not copy Grokmvp-specific seed, handoff, or completed factory runs. |
 
 Authoritative detail: [SPEC-SEED-grokmvp.md](SPEC-SEED-grokmvp.md) §8. Post-paste cleanup: [TARGET-REPO-LIFT.md](../TARGET-REPO-LIFT.md).
@@ -34,11 +34,11 @@ That is **not** the root README alone (README orients humans; the seed is the pl
 
 **What you do:**
 
-1. Skim [README.md](../../README.md) and [Grokmvp/README.md](../../Grokmvp/README.md) for product context.
+1. Skim [README.md](../../README.md) and [project-code/README.md](../../project-code/README.md) for product context.
 2. Open `SPEC-SEED-grokmvp.md` or start from [SPEC-SEED.stub.md](SPEC-SEED.stub.md).
 3. Run **grill-with-docs** on the seed — especially phases and open decisions. Example:
 
-   > Grill `Planner/intake/SPEC-SEED-grokmvp.md`. This repo is the Grokmvp factory; product code lives under `Grokmvp/`. Update the seed when we agree.
+   > Grill `Planner/intake/SPEC-SEED-grokmvp.md`. This repo is the Grokmvp factory; product code lives under `project-code/`. Update the seed when we agree.
 
 4. Keep editing until **you** would trust this doc as the only briefing for a planner session.
 
@@ -82,7 +82,7 @@ Or say **single_phase_project** / **small_feature** to skip `PHASE-MAP.md` for a
 
 After approval, the planner plans `NEXT-SLICE.md`. **You say:** “Implement.”
 
-The planner implements only what the slice allows (paths under `Grokmvp/`, `docs/`, `.cursor/rules/`, etc. per slice and `project_layer_mapping`).
+The planner implements only what the slice allows (paths under `project-code/`, `docs/`, `.cursor/rules/`, etc. per slice and `project_layer_mapping`).
 
 Then review → next slice → closeout.
 

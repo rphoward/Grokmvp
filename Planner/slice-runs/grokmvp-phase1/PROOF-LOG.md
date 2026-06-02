@@ -54,5 +54,21 @@ Slice pass records for closeout. Status enum: `passed_closing` | `passed_with_de
       (reviewer_note
         "Allowed edits only (context-index.md, README step 3). Factory read order
          and greenfield adoption path match seed §8 and START-HERE; no mapping,
-         product, rules, or root AGENTS.md changes; layer ownership unchanged."))))
+         product, rules, or root AGENTS.md changes; layer ownership unchanged."))
+    (entry
+      (slice_number   4)
+      (slice_name     "rename product home to project-code/")
+      (slice_type     standard)
+      (status         passed_closing)
+      (reviewed       "2026-06-02")
+      (proof
+        (command  "python project-code/hello.py from repo root")
+        (result   "Hello, world!")
+        (optional "no Grokmvp/ dir; mapping and repo-layout factory exception verified"))
+      (required_outcomes (ro3))
+      (reviewer_note
+        "Allowed edits only. project-code/ on disk; project_layer_mapping aligned;
+         operational intake/docs updated; root AGENTS.md verification path only;
+         no forbidden folders; no assets/ writes; layer ownership unchanged;
+         stale Grokmvp/ path hits limited to run ledger history and slice metadata."))))
 ```
