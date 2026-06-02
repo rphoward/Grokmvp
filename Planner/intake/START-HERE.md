@@ -17,7 +17,7 @@ This matches the **unified router** in `Planner/contracts/codex-router-planner-u
 
 | Mode | Meaning |
 |------|---------|
-| **Factory** (this repo) | Full workspace: `.cursor/rules/`, `Planner/`, `docs/`, `assets/`, reference product under [`project-code/`](../../project-code/), proof run [`grokmvp-phase1`](../../slice-runs/grokmvp-phase1/) (`complete`). New planning: [`SPEC-SEED.stub.md`](SPEC-SEED.stub.md). P1 seed archived: [`SPEC-SEED-grokmvp.md`](../../docs/references/SPEC-SEED-grokmvp.md). |
+| **Factory** (this repo) | Full workspace: `.cursor/rules/`, `Planner/`, `docs/`, `assets/`, reference product under [`project-code/`](../../project-code/). Default run [`factory`](../../slice-runs/factory/) (`needs_slice_list`). New planning: [`SPEC-SEED.stub.md`](SPEC-SEED.stub.md). P1 proof archived: [`grokmvp-phase1-proof`](../../docs/references/grokmvp-phase1-proof/), seed [`SPEC-SEED-grokmvp.md`](../../docs/references/SPEC-SEED-grokmvp.md). |
 | **Greenfield paste** | Copy the portable kit into another repo; grill and plan from [`SPEC-SEED.stub.md`](SPEC-SEED.stub.md); reset `Planner/router-state.md` and your run folder; fill `project_layer_mapping` in the unified contract. Do not copy factory reference seeds, handoffs, or completed runs. |
 
 Factory vs greenfield: [SPEC-SEED.stub.md](SPEC-SEED.stub.md) and [../../docs/references/SPEC-SEED-grokmvp.md](../../docs/references/SPEC-SEED-grokmvp.md) §8. Post-paste cleanup: [TARGET-REPO-LIFT.md](../../docs/references/TARGET-REPO-LIFT.md).
@@ -52,11 +52,11 @@ P1 dogfood seed is archived at [`docs/references/SPEC-SEED-grokmvp.md`](../../do
 
 Open this repo in Cursor with the **unified planner** active (agent follows `Planner/contracts/` and reads `Planner/router-state.md`).
 
-### B0 — Pick a run folder (once per phase effort)
+### B0 — Active run folder
 
-Router pointer: **`Planner/slice-runs/grokmvp-phase1/`** (see `Planner/router-state.md`) — **proof run, `complete`**.
+Router pointer: **`Planner/slice-runs/factory/`** (see `Planner/router-state.md`) — default after clone; grill seed then plan.
 
-For **new** phase effort, copy `Planner/slice-runs/_template/` to a new name, point `router-state.md` at that folder’s `STATUS.md`, and use your new seed from Job A.
+For a **second** parallel phase effort, copy `Planner/slice-runs/_template/` to a new name, point `router-state.md` at that folder’s `STATUS.md`, and use your seed from Job A.
 
 ### B1 — Give the planner the seed → phase map
 

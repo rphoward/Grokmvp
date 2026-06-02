@@ -11,4 +11,4 @@ Operational facts for agents working in this repository.
 
 For `Planner/slice-runs/` and `Planner/contracts/`, follow [Planner/AGENTS.md](Planner/AGENTS.md) and the active run `STATUS.md` (after [Planner/router-state.md](Planner/router-state.md)). Do not store active planner run state in this file.
 
-New planning: [Planner/intake/SPEC-SEED.stub.md](Planner/intake/SPEC-SEED.stub.md). P1 dogfood seed (historical): [docs/references/SPEC-SEED-grokmvp.md](docs/references/SPEC-SEED-grokmvp.md).
+New planning: [Planner/intake/SPEC-SEED.stub.md](Planner/intake/SPEC-SEED.stub.md). Default run: [Planner/slice-runs/factory/](Planner/slice-runs/factory/). P1 archive: [docs/references/grokmvp-phase1-proof/](docs/references/grokmvp-phase1-proof/), [docs/references/SPEC-SEED-grokmvp.md](docs/references/SPEC-SEED-grokmvp.md).

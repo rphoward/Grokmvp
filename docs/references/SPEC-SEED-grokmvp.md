@@ -1,10 +1,10 @@
 # SPEC seed — factory dogfood (historical)
 
 > **Historical (P1 complete, 2026-06-02).** This seed drove `grokmvp-phase1`
-> through closeout. For **new planning** in this repo use
-> [`Planner/intake/SPEC-SEED.stub.md`](../../Planner/intake/SPEC-SEED.stub.md) and a
-> new `Planner/slice-runs/<run>/` folder. For **proof**, see
-> [`Planner/slice-runs/grokmvp-phase1/`](../../Planner/slice-runs/grokmvp-phase1/).
+> through closeout. For **new planning** use
+> [`Planner/intake/SPEC-SEED.stub.md`](../../Planner/intake/SPEC-SEED.stub.md) and the
+> default run [`Planner/slice-runs/factory/`](../../Planner/slice-runs/factory/). For **proof**, see
+> [`grokmvp-phase1-proof/run/`](grokmvp-phase1-proof/run/).
 
 Source packet for the **factory** workspace P1 effort. The unified router read this
 (with `Planner/router-state.md` and the run `STATUS.md`) during slice-list planning.
@@ -81,7 +81,7 @@ P1 **outcomes** (completed via `grokmvp-phase1` slices):
 - `Planner/context-index.md` factory mode; portable adopters use `SPEC-SEED.stub.md`.
 - **`project-code/` rename slice** (slice 4).
 - P1 planner loop closed out (`STATUS.md` `complete`).
-- Optional post-P1: `Planner/slice-runs/grokmvp-phase1/PHASE-BACKLOG.md`.
+- Optional post-P1: [grokmvp-phase1-proof/run/PHASE-BACKLOG.md](grokmvp-phase1-proof/run/PHASE-BACKLOG.md).
 
 ## 6. Already delivered (do not re-slice)
 
@@ -95,7 +95,7 @@ Manual / pre-grill factory work already on disk:
 - `Planner/contracts/domain-spoke-architecture.md` + architecture stub files for
   later research.
 - `project_layer_mapping` filled for `grokmvp` in unified contract (`project-code/` paths).
-- `Planner/slice-runs/grokmvp-phase1/` proof run in `Planner/router-state.md`.
+- P1 proof run archived under `docs/references/grokmvp-phase1-proof/` (no longer in `slice-runs/`).
 - Reference `project-code/hello.py` scaffold.
 - Grill handoff (historical): `docs/references/HANDOFF-grill-spec-seed-2026-06-02.md`.
 
@@ -117,7 +117,7 @@ Authoritative block: `project_layer_mapping` /
 
 | Mode | Meaning |
 |------|---------|
-| **Factory** (this repo) | Full workspace: rules + `Planner/` + docs + `assets/` + reference product + proof run (`grokmvp-phase1`). P1 dogfood seed archived here. |
+| **Factory** (this repo) | Full workspace: rules + `Planner/` + docs + `assets/` + reference product; default run `slice-runs/factory/`. P1 proof + seed archived under `docs/references/`. |
 | **Greenfield paste** | Copy portable kit; use `SPEC-SEED.stub.md`; reset `router-state` and run folder; fill `project_layer_mapping`; no factory-specific reference seeds or completed runs. |
 
 ## 9. Rename slice — `project-code/` (checklist)

@@ -4,10 +4,17 @@ This repository is the **clone-space factory**: Cursor agent rules (`.cursor/rul
 
 There is no separate product GitHub repo in this model. Develop and version everything here; copy `Planner/` or publish artifacts to other repos when a target project needs them (post-paste checklist: [docs/references/TARGET-REPO-LIFT.md](docs/references/TARGET-REPO-LIFT.md)).
 
-## Proof run (not your active queue)
+## Start here (zero setup after clone)
 
-[`Planner/slice-runs/grokmvp-phase1/`](Planner/slice-runs/grokmvp-phase1/) is a **completed** single-phase run (`STATUS.md` → `complete`) that proves the router loop on this factory seed. It is historical evidence, not where new work starts. For P2 or new effort: copy `Planner/slice-runs/_template/` to a new run folder, point [`Planner/router-state.md`](Planner/router-state.md) at that run’s `STATUS.md`, and plan from the seed or a new spec.
+1. Read this README and [`Planner/intake/START-HERE.md`](Planner/intake/START-HERE.md).
+2. Grill [`Planner/intake/SPEC-SEED.stub.md`](Planner/intake/SPEC-SEED.stub.md) into your project seed.
+3. Open Cursor; the router already points at [`Planner/slice-runs/factory/`](Planner/slice-runs/factory/) (`needs_slice_list` — not a completed run).
+4. Say **create the phase map from the seed** or **single_phase_project — create the slice list**.
+
+Verify the reference product: `python project-code/hello.py` from the repo root.
+
+P1 dogfood history (completed proof run, archived seed): [`docs/references/grokmvp-phase1-proof/`](docs/references/grokmvp-phase1-proof/), [`docs/references/SPEC-SEED-grokmvp.md`](docs/references/SPEC-SEED-grokmvp.md). Do not use those as your active planning source.
 
 ## Greenfield paste
 
-If you copied the portable kit into a **different** repository, you are not in factory mode. Grill [Planner/intake/SPEC-SEED.stub.md](Planner/intake/SPEC-SEED.stub.md), set up your own slice run and `router-state.md`, fill `project_layer_mapping` in [Planner/contracts/codex-router-planner-unified.md](Planner/contracts/codex-router-planner-unified.md), and follow [docs/references/TARGET-REPO-LIFT.md](docs/references/TARGET-REPO-LIFT.md). Do not treat this repo’s dogfood seed or the completed proof run as your source of truth.
+If you copied the portable kit into a **different** repository, you are not in factory mode. Grill [Planner/intake/SPEC-SEED.stub.md](Planner/intake/SPEC-SEED.stub.md), set up your own slice run and `router-state.md`, fill `project_layer_mapping` in [Planner/contracts/codex-router-planner-unified.md](Planner/contracts/codex-router-planner-unified.md), and follow [docs/references/TARGET-REPO-LIFT.md](docs/references/TARGET-REPO-LIFT.md).

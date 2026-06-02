@@ -12,11 +12,12 @@
 
 ## Job B — Planner loop
 
-- [x] Copy `slice-runs/_template` → `slice-runs/grokmvp-phase1/`; wire [router-state.md](../router-state.md)
-- [x] **single_phase_project** — skipped `PHASE-MAP.md`; inline `phase_intent` in [SLICE-LIST.md](../slice-runs/grokmvp-phase1/SLICE-LIST.md)
+- [x] Copy `slice-runs/_template` → P1 run; wire [router-state.md](../router-state.md) (P1 archived [grokmvp-phase1-proof](../../docs/references/grokmvp-phase1-proof/))
+- [x] **single_phase_project** — skipped `PHASE-MAP.md`; inline `phase_intent` in P1 [SLICE-LIST.md](../../docs/references/grokmvp-phase1-proof/run/SLICE-LIST.md)
 - [x] Slice list approved; slices 1–4 implemented and reviewed (2026-06-02)
-- [x] **final_closeout** — [STATUS.md](../slice-runs/grokmvp-phase1/STATUS.md) `complete`; optional items in [PHASE-BACKLOG.md](../slice-runs/grokmvp-phase1/PHASE-BACKLOG.md)
-- [ ] **P2+:** new `slice-runs/<run-name>/`, update `router-state.md`, grill seed or new spec — do not reuse completed `grokmvp-phase1` RUN_DIR for new phase work
+- [x] **final_closeout** — P1 [STATUS.md](../../docs/references/grokmvp-phase1-proof/run/STATUS.md) `complete`; optional [PHASE-BACKLOG.md](../../docs/references/grokmvp-phase1-proof/run/PHASE-BACKLOG.md)
+- [ ] **Factory default:** grill [SPEC-SEED.stub.md](SPEC-SEED.stub.md); router → [factory](../slice-runs/factory/) → phase map or **single_phase_project** → slice list
+- [ ] **Extra run:** copy `_template` → `slice-runs/<run-name>/`, update `router-state.md` (P1 proof lives only under [grokmvp-phase1-proof](../../docs/references/grokmvp-phase1-proof/))
 
 ---
 

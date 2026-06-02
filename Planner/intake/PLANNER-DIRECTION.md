@@ -4,7 +4,7 @@
 
 This repo is **standalone_target** planning: contracts live under `Planner/`. The planner reads **disk**, not chat memory, as authority.
 
-This workspace is the **factory** (see [SPEC-SEED.stub.md](SPEC-SEED.stub.md) and [../../docs/references/SPEC-SEED-grokmvp.md](../../docs/references/SPEC-SEED-grokmvp.md) §8). For **greenfield paste** into another repo, use [SPEC-SEED.stub.md](SPEC-SEED.stub.md), reset `router-state.md`, and follow [TARGET-REPO-LIFT.md](../../docs/references/TARGET-REPO-LIFT.md)—not factory reference seeds or the completed proof run under `slice-runs/grokmvp-phase1/`.
+This workspace is the **factory** (see [SPEC-SEED.stub.md](SPEC-SEED.stub.md) and [../../docs/references/SPEC-SEED-grokmvp.md](../../docs/references/SPEC-SEED-grokmvp.md) §8). For **greenfield paste** into another repo, use [SPEC-SEED.stub.md](SPEC-SEED.stub.md), reset `router-state.md`, and follow [TARGET-REPO-LIFT.md](../../docs/references/TARGET-REPO-LIFT.md)—not factory reference seeds or the archived P1 proof under [grokmvp-phase1-proof](../../docs/references/grokmvp-phase1-proof/).
 
 ---
 
@@ -15,7 +15,7 @@ This workspace is the **factory** (see [SPEC-SEED.stub.md](SPEC-SEED.stub.md) an
 | `source_material` (create_phase_map) | [SPEC-SEED.stub.md](SPEC-SEED.stub.md) or your new `SPEC-SEED-<slug>.md` under intake |
 | `source_packet` (create_slice_list, plan_next_slice, …) | Same seed; plus approved `PHASE-MAP.md` when **multi_phase** |
 
-P1 used [SPEC-SEED-grokmvp.md](../../docs/references/SPEC-SEED-grokmvp.md) (archived); proof run is **single_phase** with intent inline in `grokmvp-phase1/SLICE-LIST.md`.
+P1 used [SPEC-SEED-grokmvp.md](../../docs/references/SPEC-SEED-grokmvp.md) (archived); proof run is **single_phase** with intent inline in [grokmvp-phase1-proof/run/SLICE-LIST.md](../../docs/references/grokmvp-phase1-proof/run/SLICE-LIST.md).
 
 **Before any planner session:** Job A in [START-HERE.md](START-HERE.md) — grill until the seed is trustworthy.
 
