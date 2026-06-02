@@ -4,6 +4,8 @@
 
 This repo is **standalone_target** planning: contracts live under `Planner/`. The planner reads **disk**, not chat memory, as authority.
 
+This workspace is the **factory** (see [SPEC-SEED-grokmvp.md](SPEC-SEED-grokmvp.md) §8). For **greenfield paste** into another repo, use [SPEC-SEED.stub.md](SPEC-SEED.stub.md), reset `router-state.md`, and follow [TARGET-REPO-LIFT.md](../TARGET-REPO-LIFT.md)—not this repo’s dogfood seed or `grokmvp-phase1` run.
+
 ---
 
 ## The seed is the source packet
@@ -11,14 +13,14 @@ This repo is **standalone_target** planning: contracts live under `Planner/`. Th
 | Planner term | Your file |
 |--------------|-----------|
 | `source_material` (create_phase_map) | [SPEC-SEED-grokmvp.md](SPEC-SEED-grokmvp.md) |
-| `source_packet` (create_slice_list, plan_next_slice, …) | Same seed + approved `PHASE-MAP.md` |
+| `source_packet` (create_slice_list, plan_next_slice, …) | Same seed; plus approved `PHASE-MAP.md` when **multi_phase** (this factory P1 run is **single_phase**—intent inline in `SLICE-LIST.md`) |
 
 **Before any planner session:** Job A in [START-HERE.md](START-HERE.md) — grill until the seed is trustworthy.
 
 Minimum seed content (matches [SPEC-SEED.stub.md](SPEC-SEED.stub.md) and router `require_fields`):
 
 - Goal and non-goals  
-- Constraints (repo-layout; product under `Grokmvp/`; no auto scope creep)  
+- Constraints (repo-layout; product under `Grokmvp/` today, target `project-code/` per seed §7–9; no auto scope creep)  
 - Definition of done / proof  
 - Proposed phases (becomes PHASE-MAP body)  
 - `project_layer_mapping` notes for slug `grokmvp` (see seed §7)

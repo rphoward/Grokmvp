@@ -25,5 +25,19 @@ Slice pass records for closeout. Status enum: `passed_closing` | `passed_with_de
            !assets/.gitkeep is whitelisted. On-disk layout and ro4 intent satisfied."))
       (reviewer_note
         "Architecture guardrails held: only assets/.gitkeep; no machine records;
-         no forbidden folders; layer ownership unchanged. Git state: .gitkeep untracked."))))
+         no forbidden folders; layer ownership unchanged. Git state: .gitkeep untracked."))
+    (entry
+      (slice_number   2)
+      (slice_name     "intake truthfulness and Job A")
+      (slice_type     standard)
+      (status         passed_closing)
+      (reviewed       "2026-06-02")
+      (proof
+        (command  "Job A [x] in PLANNING-WORKFLOW; greenfield in START-HERE and README")
+        (result   "OK")
+        (optional "python Grokmvp/hello.py -> Hello, world!"))
+      (required_outcomes (ro1))
+      (reviewer_note
+        "Allowed edits only; context-index and mapping untouched; seed §8 aligned;
+         no cursor-landing reintroduction; root AGENTS.md unchanged."))))
 ```

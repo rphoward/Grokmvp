@@ -13,6 +13,15 @@ This matches the **unified router** in `Planner/contracts/codex-router-planner-u
 
 **Grill-with-docs** is for job **A** only. You sharpen a draft into the real seed file. The planner consumes the finished seed.
 
+## Factory vs greenfield (which repo are you in?)
+
+| Mode | Meaning |
+|------|---------|
+| **Factory** (this repo) | Full workspace: `.cursor/rules/`, `Planner/`, `docs/`, `assets/`, reference product under [`Grokmvp/`](../Grokmvp/) (target name `project-code/` after rename slice), dogfood seed [`SPEC-SEED-grokmvp.md`](SPEC-SEED-grokmvp.md), and active run `grokmvp-phase1`. |
+| **Greenfield paste** | Copy the portable kit into another repo; grill and plan from [`SPEC-SEED.stub.md`](SPEC-SEED.stub.md); reset `Planner/router-state.md` and your run folder; fill `project_layer_mapping` in the unified contract. Do not copy Grokmvp-specific seed, handoff, or completed factory runs. |
+
+Authoritative detail: [SPEC-SEED-grokmvp.md](SPEC-SEED-grokmvp.md) §8. Post-paste cleanup: [TARGET-REPO-LIFT.md](../TARGET-REPO-LIFT.md).
+
 ---
 
 ## Job A — Turn your ideas into the seed (you + grill)
@@ -21,7 +30,7 @@ The planner’s `create_phase_map` mode reads **source material**. In this repo 
 
 **`Planner/intake/SPEC-SEED-grokmvp.md`**
 
-That is **not** the root README alone. The seed is for the planner: goals, non-goals, constraints, proof, proposed phases, layer mapping notes.
+That is **not** the root README alone (README orients humans; the seed is the planner source packet). The seed holds goals, non-goals, constraints, proof, proposed phases, and layer mapping notes.
 
 **What you do:**
 

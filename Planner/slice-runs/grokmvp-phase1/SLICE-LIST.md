@@ -57,7 +57,8 @@ carries required outcomes, non-negotiable intent, and constraints.
       (number  2)
       (name    "intake truthfulness and Job A")
       (slice_type standard)
-      (status  pending)
+      (status  passed_closing)
+      (reviewed "2026-06-02")
       (depends none)
       (inspect "Planner/intake/PLANNING-WORKFLOW.md (Job A grill checkbox unchecked); README.md START-HERE.md PLANNER-DIRECTION.md; seed section 8 factory vs greenfield")
       (done    "Job A grill-seed checkbox checked; intake states the factory vs greenfield kit-paste distinction")
@@ -92,9 +93,10 @@ carries required outcomes, non-negotiable intent, and constraints.
     (do_not store_active_run_state_in_root_AGENTS))
 
   (next_action
-    (mode        approve_or_revise_slice_list)
-    (write_only  "RUN_DIR/SLICE-LIST.md on revision; RUN_DIR/STATUS.md")
-    (do_not_write "NEXT-SLICE.md; product_code; PHASE-MAP.md")))
+    (mode        needs_next_slice_plan)
+    (next        "slice 3 — context-index factory mode (ro2)")
+    (write_only  "RUN_DIR/NEXT-SLICE.md and RUN_DIR/STATUS.md on plan")
+    (do_not_write "PHASE-MAP.md; product rename (slice 4) until planned")))
 ```
 
 **Deferred (optional, not slices unless you ask):** minimal smoke-test harness

@@ -1,6 +1,6 @@
 # Run status — grokmvp-phase1
 
-Single-phase P1: slice 1 passed (with debt); plan slice 2 next.
+Single-phase P1: slice 2 passed; plan slice 3 next.
 
 ```lisp
 (run_status
@@ -8,7 +8,7 @@ Single-phase P1: slice 1 passed (with debt); plan slice 2 next.
   (status_path        "Planner/slice-runs/grokmvp-phase1/STATUS.md")
   (current_mode       "needs_next_slice_plan")
   (active_slice_file  none)
-  (next_action        "Plan slice 2 (intake truthfulness and Job A). Say: plan the next slice — or approve if NEXT-SLICE already exists.")
+  (next_action        "Plan slice 3 (context-index factory mode). Say: plan the next slice.")
   (project_shape      "single_phase")
-  (notes              "Slice 1 reviewed 2026-06-02 passed_with_debt (PROOF-LOG.md). Debt: !assets/.gitkeep in .gitignore for VCS tracking. NEXT-SLICE.md archived in place."))
+  (notes              "Slice 2 reviewed 2026-06-02 passed_closing (PROOF-LOG.md). Slice 1 debt: !assets/.gitkeep in .gitignore."))
 ```
