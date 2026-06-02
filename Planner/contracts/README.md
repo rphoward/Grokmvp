@@ -18,6 +18,21 @@ order, and points to supporting material.
    planning vocabulary, and presentation/infrastructure rules the planner applies
    when filling `layer_ownership`, `touched_spokes`, and proof fields.
 
+## Allowed architectures
+
+Only contracts listed here may be selected for routed work. Stubs are shape
+for research and grilling; they are **not** selectable until promoted and wired
+in `codex-router-planner-unified.md`.
+
+| Contract file | Organizing axis | Status | Selectable |
+|---------------|-----------------|--------|------------|
+| `domain-spoke-architecture.md` | domain-centered | active (default) | yes |
+| `client-interactive-architecture.md` | runtime (UI/client) | stub | no |
+| `dataflow-stream-architecture.md` | dataflow (pipeline/stream) | stub | no |
+| `deployable-unit-architecture.md` | deployable (service/unit) | stub | no |
+| `agent-orchestration-architecture.md` | agent (tool loops) | stub | no |
+| `state-event-architecture.md` | state (events/transitions) | stub | no |
+
 Then read **`../AGENTS.md` (this kit)** and `../context-index.md`. Map **domain**
 / **domain center** to your innermost domain package through
 `project_layer_mapping` in `codex-router-planner-unified.md`, with

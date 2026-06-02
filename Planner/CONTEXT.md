@@ -17,8 +17,8 @@ _Avoid_: "session state", "context window".
 
 **Allowed architecture**:
 An architecture whose full definition exists as a contract file under
-`Planner/contracts/` and is declared part of the allowed set in planner
-contracts.
+`Planner/contracts/` and is listed in the allowed set table in
+`Planner/contracts/README.md` (stub rows are not selectable).
 _Avoid_: "the architecture we like", "best fit architecture".
 
 **Default architecture**:
