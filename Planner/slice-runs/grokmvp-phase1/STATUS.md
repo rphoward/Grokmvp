@@ -69,7 +69,7 @@ Single-phase P1 factory run — **complete** (project_complete).
     (orientation_sync
       (paths
         Planner/intake/PLANNING-WORKFLOW.md
-        Planner/intake/SPEC-SEED-grokmvp.md
+        docs/references/SPEC-SEED-grokmvp.md
         RUN_DIR/SLICE-LIST.md
         Planner/router-state.md
         Planner/context-index.md))

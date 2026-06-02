@@ -17,34 +17,34 @@ This matches the **unified router** in `Planner/contracts/codex-router-planner-u
 
 | Mode | Meaning |
 |------|---------|
-| **Factory** (this repo) | Full workspace: `.cursor/rules/`, `Planner/`, `docs/`, `assets/`, reference product under [`project-code/`](../../project-code/), dogfood seed [`SPEC-SEED-grokmvp.md`](SPEC-SEED-grokmvp.md), and active run `grokmvp-phase1`. |
-| **Greenfield paste** | Copy the portable kit into another repo; grill and plan from [`SPEC-SEED.stub.md`](SPEC-SEED.stub.md); reset `Planner/router-state.md` and your run folder; fill `project_layer_mapping` in the unified contract. Do not copy Grokmvp-specific seed, handoff, or completed factory runs. |
+| **Factory** (this repo) | Full workspace: `.cursor/rules/`, `Planner/`, `docs/`, `assets/`, reference product under [`project-code/`](../../project-code/), proof run [`grokmvp-phase1`](../../slice-runs/grokmvp-phase1/) (`complete`). New planning: [`SPEC-SEED.stub.md`](SPEC-SEED.stub.md). P1 seed archived: [`SPEC-SEED-grokmvp.md`](../../docs/references/SPEC-SEED-grokmvp.md). |
+| **Greenfield paste** | Copy the portable kit into another repo; grill and plan from [`SPEC-SEED.stub.md`](SPEC-SEED.stub.md); reset `Planner/router-state.md` and your run folder; fill `project_layer_mapping` in the unified contract. Do not copy factory reference seeds, handoffs, or completed runs. |
 
-Authoritative detail: [SPEC-SEED-grokmvp.md](SPEC-SEED-grokmvp.md) §8. Post-paste cleanup: [TARGET-REPO-LIFT.md](../TARGET-REPO-LIFT.md).
+Factory vs greenfield: [SPEC-SEED.stub.md](SPEC-SEED.stub.md) and [../../docs/references/SPEC-SEED-grokmvp.md](../../docs/references/SPEC-SEED-grokmvp.md) §8. Post-paste cleanup: [TARGET-REPO-LIFT.md](../../docs/references/TARGET-REPO-LIFT.md).
 
 ---
 
 ## Job A — Turn your ideas into the seed (you + grill)
 
-The planner’s `create_phase_map` mode reads **source material**. In this repo that file is:
+The planner’s `create_phase_map` mode reads **source material**. For **new work** in this factory, start from:
 
-**`Planner/intake/SPEC-SEED-grokmvp.md`**
+**[`Planner/intake/SPEC-SEED.stub.md`](SPEC-SEED.stub.md)**
 
 That is **not** the root README alone (README orients humans; the seed is the planner source packet). The seed holds goals, non-goals, constraints, proof, proposed phases, and layer mapping notes.
+
+P1 dogfood seed is archived at [`docs/references/SPEC-SEED-grokmvp.md`](../../docs/references/SPEC-SEED-grokmvp.md) (do not edit for new phases unless you are deliberately revising history).
 
 **What you do:**
 
 1. Skim [README.md](../../README.md) and [project-code/README.md](../../project-code/README.md) for product context.
-2. Open `SPEC-SEED-grokmvp.md` or start from [SPEC-SEED.stub.md](SPEC-SEED.stub.md).
-3. Run **grill-with-docs** on the seed — especially phases and open decisions. Example:
-
-   > Grill `Planner/intake/SPEC-SEED-grokmvp.md`. This repo is the Grokmvp factory; product code lives under `project-code/`. Update the seed when we agree.
+2. Copy or grill from [SPEC-SEED.stub.md](SPEC-SEED.stub.md) (or your own `SPEC-SEED-<slug>.md` under intake if you prefer).
+3. Run **grill-with-docs** on the seed — especially phases and open decisions.
 
 4. Keep editing until **you** would trust this doc as the only briefing for a planner session.
 
 **Job A is done when** the seed reads like a contract: clear goal, clear “won’t do,” clear phases, clear proof.
 
-`project_layer_mapping` for `grokmvp` is already filled in `Planner/contracts/codex-router-planner-unified.md` (see seed §7). Adjust there if your folder layout changes.
+`project_layer_mapping` for `grokmvp` is already filled in `Planner/contracts/codex-router-planner-unified.md`. Adjust there if your folder layout changes.
 
 ---
 
@@ -54,15 +54,15 @@ Open this repo in Cursor with the **unified planner** active (agent follows `Pla
 
 ### B0 — Pick a run folder (once per phase effort)
 
-Active run: **`Planner/slice-runs/grokmvp-phase1/`** (see `Planner/router-state.md`).
+Router pointer: **`Planner/slice-runs/grokmvp-phase1/`** (see `Planner/router-state.md`) — **proof run, `complete`**.
 
-For a new phase effort, copy `Planner/slice-runs/_template/` to a new name and point `router-state.md` at that folder’s `STATUS.md`.
+For **new** phase effort, copy `Planner/slice-runs/_template/` to a new name, point `router-state.md` at that folder’s `STATUS.md`, and use your new seed from Job A.
 
 ### B1 — Give the planner the seed → phase map
 
 **You say:**
 
-> Create the phase map from the seed at `Planner/intake/SPEC-SEED-grokmvp.md`.
+> Create the phase map from the seed at `Planner/intake/SPEC-SEED.stub.md` (or your new seed path).
 
 Or say **single_phase_project** / **small_feature** to skip `PHASE-MAP.md` for a tiny task.
 
@@ -96,7 +96,7 @@ When the router says the phase is sealed and more phases remain, start a **new r
 
 | You want… | Say something like… |
 |-----------|---------------------|
-| First plan | “Create the phase map from `Planner/intake/SPEC-SEED-grokmvp.md`.” |
+| First plan | “Create the phase map from `Planner/intake/SPEC-SEED.stub.md`.” (or your seed path) |
 | Small task | “This is a single_phase_project — create the slice list.” |
 | Slice breakdown | “Create the slice list.” (after phase map approved) |
 | OK slice list | “Approve the slice list.” |
@@ -111,7 +111,8 @@ The agent should read `Planner/router-state.md` and the active `STATUS.md` every
 
 | File | Role |
 |------|------|
-| `SPEC-SEED-grokmvp.md` | **Seed** — grill this, then feed the planner |
+| `SPEC-SEED.stub.md` | **Seed template** — grill this for new work |
+| `docs/references/SPEC-SEED-grokmvp.md` | P1 dogfood seed (historical) |
 | `PHASE-MAP.md` | Multi-phase chunks (created by planner) |
 | `slice-runs/<name>/SLICE-LIST.md` | Tasks for the current run |
 | `slice-runs/<name>/NEXT-SLICE.md` | The one task being implemented now |
@@ -124,8 +125,9 @@ The agent should read `Planner/router-state.md` and the active `STATUS.md` every
 
 | Doc | Use |
 |-----|-----|
-| [SPEC-SEED-grokmvp.md](SPEC-SEED-grokmvp.md) | The seed itself |
+| [SPEC-SEED.stub.md](SPEC-SEED.stub.md) | Active seed template |
+| [../../docs/references/SPEC-SEED-grokmvp.md](../../docs/references/SPEC-SEED-grokmvp.md) | P1 dogfood seed (archive) |
 | [PLANNING-WORKFLOW.md](PLANNING-WORKFLOW.md) | Short checklist |
 | [PLANNER-DIRECTION.md](PLANNER-DIRECTION.md) | Seed requirements for the router |
 | [../contracts/codex-router-planner-unified.md](../contracts/codex-router-planner-unified.md) | Full router (for the agent) |
-| [../TARGET-REPO-LIFT.md](../TARGET-REPO-LIFT.md) | Post-paste cleanup checklist |
+| [../../docs/references/TARGET-REPO-LIFT.md](../../docs/references/TARGET-REPO-LIFT.md) | Post-paste cleanup checklist |

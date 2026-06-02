@@ -77,7 +77,8 @@ planner artifacts.
 - `../phase-map/PHASE-MAP.md` — required outcomes, deferred phases, and phase
   intent referenced at closeout (path pinned in the unified contract).
 
-## Archive
+## Reference (not routed contracts)
 
-- `archive/` — older prompts, superseded contract snapshots, and portability
-  notes. Prefer the three files in **Read order** above for current v4 work.
+Session notes and paste checklists live in [`../../docs/references/`](../../docs/references/)
+(for example `TARGET-REPO-LIFT.md`, `SPEC-SEED-grokmvp.md`, `router-planner-v4-handoff.md`). Prefer the
+three files in **Read order** above for current v4 routed work.

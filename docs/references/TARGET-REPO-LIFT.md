@@ -43,7 +43,8 @@ Remove these paths under the pasted `Planner/`. They are cursor-landing history 
 |--------|------|
 | `Planner/phase-map/PHASE-MAP.md` | `PHASE-MAP.stub.md`, `README.md`, `validation/` |
 
-**Optional:** delete `Planner/contracts/router-planner-v4-handoff.md` if you want a slimmer kit.
+**Optional:** omit `docs/references/router-planner-v4-handoff.md` and other
+reference-only files when slimming a pasted kit.
 
 ---
 

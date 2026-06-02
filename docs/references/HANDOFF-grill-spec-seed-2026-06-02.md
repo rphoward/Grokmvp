@@ -1,5 +1,10 @@
 # Handoff — grill `SPEC-SEED-grokmvp.md` and finish factory P1
 
+> **Historical (P1 complete, 2026-06-02).** Grill and planner loop are done. For
+> current factory state use `docs/references/SPEC-SEED-grokmvp.md` and
+> `Planner/slice-runs/grokmvp-phase1/STATUS.md` (`complete`). The body below is
+> session archive only.
+
 **Next session goal:** Run **`/grill-me`** on the open points below (one question at a time), then **update** `Planner/intake/SPEC-SEED-grokmvp.md` from agreed answers. After the seed is trustworthy, run the planner loop (`create_phase_map` or `single_phase_project` → slice list → implement).
 
 **Do not duplicate** full text from: `Planner/CONTEXT.md`, `Planner/AGENTS.md`, `Planner/contracts/README.md` artifact registry, or `.cursor/rules/*.mdc`. Reference those paths.

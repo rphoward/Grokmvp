@@ -1,7 +1,7 @@
 # SLICE-LIST — grokmvp-phase1 (single_phase)
 
 Inline-intent slice list for finishing the clone-space factory (P1). Source is
-`Planner/intake/SPEC-SEED-grokmvp.md`. No `PHASE-MAP.md`; `phase_intent` below
+`docs/references/SPEC-SEED-grokmvp.md` (then under intake; archived after P1). No `PHASE-MAP.md`; `phase_intent` below
 carries required outcomes, non-negotiable intent, and constraints.
 
 ```lisp
@@ -35,7 +35,7 @@ carries required outcomes, non-negotiable intent, and constraints.
     (non_negotiable_user_intent "finish the factory so it can be cloned; do not redo manual kit work already on disk (seed section 6)"))
 
   (source_packet
-    (active_local_source        "Planner/intake/SPEC-SEED-grokmvp.md")
+    (active_local_source        "docs/references/SPEC-SEED-grokmvp.md")
     (supporting                 "docs/references/HANDOFF-grill-spec-seed-2026-06-02.md; Planner/contracts/README.md allowed-architectures; seed section 9 rename checklist")
     (historical_external_evidence none))
 

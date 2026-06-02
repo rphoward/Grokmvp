@@ -7,7 +7,7 @@
 
 ## Job A — Seed (before planner)
 
-- [x] Grill [SPEC-SEED-grokmvp.md](SPEC-SEED-grokmvp.md) until phases and constraints are solid (grill closeout 2026-06-02; seed §8 factory vs greenfield)
+- [x] Grill dogfood seed until phases and constraints are solid (grill closeout 2026-06-02; archived [SPEC-SEED-grokmvp.md](../../docs/references/SPEC-SEED-grokmvp.md))
 - [x] `project_layer_mapping` filled for `grokmvp` in unified contract (lift 2026-06-01)
 
 ## Job B — Planner loop

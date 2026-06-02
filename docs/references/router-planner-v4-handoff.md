@@ -1,5 +1,8 @@
 # Router Planner v4 — Handoff Brief
 
+> **Reference only** — lives under `docs/references/`, not in `Planner/contracts/`.
+> For current work use `Planner/contracts/README.md` read order (unified router + schema + domain-spoke).
+
 ## Purpose of this document
 
 Mid-rewrite continuation point. v4 contract and schema have been written and

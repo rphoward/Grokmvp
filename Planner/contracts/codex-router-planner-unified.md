@@ -401,7 +401,7 @@ edit other `Planner/contracts/` files for adoption.
 
       (notes
         (mapping_notes
-          "Authoritative table: Planner/intake/SPEC-SEED-grokmvp.md §7.
+          "Authoritative table: docs/references/SPEC-SEED-grokmvp.md §7 (historical) or project mapping in unified contract.
            Product code lives only under project-code/ per repo-layout.mdc factory exception.
            Repo root holds workspace shell (.cursor/, docs/, assets/, Planner/).
            Planner/contracts/*.md edits are kit maintenance, not product code."))

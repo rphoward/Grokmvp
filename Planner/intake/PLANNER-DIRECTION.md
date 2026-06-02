@@ -1,10 +1,10 @@
-# Direction for the unified planner (Grokmvp)
+# Direction for the unified planner
 
 **Audience:** You, when preparing a planner session — and the AI when it runs the v4 router.
 
 This repo is **standalone_target** planning: contracts live under `Planner/`. The planner reads **disk**, not chat memory, as authority.
 
-This workspace is the **factory** (see [SPEC-SEED-grokmvp.md](SPEC-SEED-grokmvp.md) §8). For **greenfield paste** into another repo, use [SPEC-SEED.stub.md](SPEC-SEED.stub.md), reset `router-state.md`, and follow [TARGET-REPO-LIFT.md](../TARGET-REPO-LIFT.md)—not this repo’s dogfood seed or `grokmvp-phase1` run.
+This workspace is the **factory** (see [SPEC-SEED.stub.md](SPEC-SEED.stub.md) and [../../docs/references/SPEC-SEED-grokmvp.md](../../docs/references/SPEC-SEED-grokmvp.md) §8). For **greenfield paste** into another repo, use [SPEC-SEED.stub.md](SPEC-SEED.stub.md), reset `router-state.md`, and follow [TARGET-REPO-LIFT.md](../../docs/references/TARGET-REPO-LIFT.md)—not factory reference seeds or the completed proof run under `slice-runs/grokmvp-phase1/`.
 
 ---
 
@@ -12,18 +12,20 @@ This workspace is the **factory** (see [SPEC-SEED-grokmvp.md](SPEC-SEED-grokmvp.
 
 | Planner term | Your file |
 |--------------|-----------|
-| `source_material` (create_phase_map) | [SPEC-SEED-grokmvp.md](SPEC-SEED-grokmvp.md) |
-| `source_packet` (create_slice_list, plan_next_slice, …) | Same seed; plus approved `PHASE-MAP.md` when **multi_phase** (this factory P1 run is **single_phase**—intent inline in `SLICE-LIST.md`) |
+| `source_material` (create_phase_map) | [SPEC-SEED.stub.md](SPEC-SEED.stub.md) or your new `SPEC-SEED-<slug>.md` under intake |
+| `source_packet` (create_slice_list, plan_next_slice, …) | Same seed; plus approved `PHASE-MAP.md` when **multi_phase** |
+
+P1 used [SPEC-SEED-grokmvp.md](../../docs/references/SPEC-SEED-grokmvp.md) (archived); proof run is **single_phase** with intent inline in `grokmvp-phase1/SLICE-LIST.md`.
 
 **Before any planner session:** Job A in [START-HERE.md](START-HERE.md) — grill until the seed is trustworthy.
 
 Minimum seed content (matches [SPEC-SEED.stub.md](SPEC-SEED.stub.md) and router `require_fields`):
 
 - Goal and non-goals  
-- Constraints (repo-layout; product under `project-code/` per seed §7–9 and repo-layout factory exception; no auto scope creep)  
+- Constraints (repo-layout; product under `project-code/` per repo-layout factory exception; no auto scope creep)  
 - Definition of done / proof  
-- Proposed phases (becomes PHASE-MAP body)  
-- `project_layer_mapping` notes for slug `grokmvp` (see seed §7)
+- Proposed phases (becomes PHASE-MAP body when multi_phase)  
+- `project_layer_mapping` notes for slug `grokmvp` (see unified contract)
 
 Do **not** point `create_phase_map` at README alone.
 
@@ -31,7 +33,7 @@ Do **not** point `create_phase_map` at README alone.
 
 ## One-time: project_layer_mapping
 
-In `Planner/contracts/codex-router-planner-unified.md`, the `grokmvp` block (per seed §7) should read:
+In `Planner/contracts/codex-router-planner-unified.md`, the `grokmvp` block should read:
 
 - **domain** → `project-code/`  
 - **application** → `project-code/`  
@@ -76,7 +78,7 @@ implement_slice
 
 ---
 
-## Grokmvp slice content rules
+## Factory slice content rules
 
 When the planner plans or implements slices for this product:
 
@@ -90,10 +92,10 @@ Embed these in the seed **constraints** and **non_negotiable_intent** so `create
 
 ## Multi-phase vs single-phase
 
-| Shape | When for Grokmvp |
-|-------|------------------|
+| Shape | When |
+|-------|------|
 | **multi_phase** | Roadmap with multiple phases — writes `PHASE-MAP.md` |
-| **single_phase** | One small change; phase intent inline in slice list; skips PHASE-MAP |
+| **single_phase** | One bounded effort; phase intent inline in slice list; skips PHASE-MAP |
 
 For a multi-phase effort, grill seed §5, then `create_phase_map`.
 
@@ -108,17 +110,15 @@ Before `create_slice_list`, you may run the chat-only validator in `Planner/cont
 ## Grill → seed → planner (correct order)
 
 ```text
-1. grill-with-docs  →  updates SPEC-SEED-grokmvp.md
+1. grill-with-docs  →  updates your seed (from SPEC-SEED.stub.md)
 2. you read seed    →  satisfied
 3. router-state     →  points at slice-runs/<run>/
-4. "create phase map from seed"
-5. you OK PHASE-MAP
+4. "create phase map from seed" (or single_phase_project)
+5. you OK PHASE-MAP (if multi_phase)
 6. "create slice list"
 7. you OK SLICE-LIST
 8. "implement" per slice until phase closeout
 ```
-
-No separate “convert README to seed” step unless README was only your draft input to the grill.
 
 ---
 
@@ -126,7 +126,7 @@ No separate “convert README to seed” step unless README was only your draft 
 
 The router could not find enough **source_material** / **source_packet** on disk.
 
-**Fix:** Ensure `SPEC-SEED-grokmvp.md` exists, paths in your request are correct, and `PHASE-MAP.md` exists before slice list if you skipped approval step.
+**Fix:** Ensure your seed exists under `Planner/intake/` (or path you name), `router-state.md` points at a live RUN_DIR, and `PHASE-MAP.md` exists before slice list when multi_phase.
 
 ---
 

@@ -1,11 +1,11 @@
 # Context index (Grokmvp factory workspace)
 
 This repository is the **clone-space factory**: Cursor rules, `Planner/`, human
-`docs/`, user-owned `assets/`, reference product under `project-code/`, dogfood seed
-[`Planner/intake/SPEC-SEED-grokmvp.md`](intake/SPEC-SEED-grokmvp.md), and active
-run `grokmvp-phase1`. Authoritative factory vs greenfield definitions:
-[SPEC-SEED-grokmvp.md §8](intake/SPEC-SEED-grokmvp.md) and
-[START-HERE.md § Factory vs greenfield](intake/START-HERE.md).
+`docs/`, user-owned `assets/`, reference product under `project-code/`, proof run
+[`grokmvp-phase1`](slice-runs/grokmvp-phase1/) (`complete`). New planning:
+[`SPEC-SEED.stub.md`](intake/SPEC-SEED.stub.md). P1 seed archived:
+[`SPEC-SEED-grokmvp.md`](../docs/references/SPEC-SEED-grokmvp.md). Factory vs greenfield:
+[START-HERE.md](intake/START-HERE.md).
 
 ## Read order — factory (this repo)
 
@@ -20,8 +20,8 @@ run `grokmvp-phase1`. Authoritative factory vs greenfield definitions:
 6. `Planner/context-index.md` — this file.
 7. `Planner/phase-map/README.md` — phase map stub and validation gate (chat-only
    per `Planner/contracts/phase_map_review_prompt.md`).
-8. `Planner/intake/SPEC-SEED-grokmvp.md` — dogfood source packet for factory
-   planning in this workspace.
+8. `Planner/intake/SPEC-SEED.stub.md` — seed template for new planning (P1 dogfood:
+   `docs/references/SPEC-SEED-grokmvp.md`).
 
 ## Greenfield paste (another repository)
 
@@ -34,7 +34,7 @@ factory runs.
 | Seed | Grill and plan from [`Planner/intake/SPEC-SEED.stub.md`](intake/SPEC-SEED.stub.md), not `SPEC-SEED-grokmvp.md`. |
 | Router | Reset `Planner/router-state.md` and create a new run under `Planner/slice-runs/`. |
 | Mapping | Fill `project_layer_mapping` in `Planner/contracts/codex-router-planner-unified.md`. |
-| Lift | Follow [`Planner/TARGET-REPO-LIFT.md`](TARGET-REPO-LIFT.md) for post-paste cleanup. |
+| Lift | Follow [`docs/references/TARGET-REPO-LIFT.md`](../docs/references/TARGET-REPO-LIFT.md) for post-paste cleanup. |
 
 Orientation for humans: [START-HERE.md](intake/START-HERE.md),
 [PLANNER-DIRECTION.md](intake/PLANNER-DIRECTION.md).

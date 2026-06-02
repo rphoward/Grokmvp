@@ -16,7 +16,7 @@ Earlier versions told you to paste “Brief 0–5” for every step. That does *
 
 | Router mode | You can say |
 |-------------|-------------|
-| `create_phase_map` | “Create the phase map from `Planner/intake/SPEC-SEED-grokmvp.md`.” |
+| `create_phase_map` | “Create the phase map from `Planner/intake/SPEC-SEED.stub.md`.” (or your seed path) |
 | Phase map review | “Validate PHASE-MAP with phase_map_review_prompt.” |
 | `create_slice_list` | “Create the slice list.” |
 | `approve_or_revise_slice_list` | “Approve the slice list.” / “Revise slice N in the list.” |
@@ -26,14 +26,16 @@ Earlier versions told you to paste “Brief 0–5” for every step. That does *
 
 ---
 
-## Seed path (always name it)
+## Seed path
 
 ```text
-Planner/intake/SPEC-SEED-grokmvp.md
+Planner/intake/SPEC-SEED.stub.md
 ```
+
+P1 archive: `docs/references/SPEC-SEED-grokmvp.md`
 
 Repo constraint:
 
 ```text
-Product code under project-code/ only. See repo-layout.mdc and SPEC-SEED §7.
+Product code under project-code/ only. See repo-layout.mdc and unified contract project_layer_mapping.
 ```
